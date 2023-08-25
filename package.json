@@ -11,13 +11,13 @@
   },
   "scripts": {
     "prepare": "husky install",
-    "prettier:write": "prettier '**/*.{json,ts,tsx}' --write",
-    "prettier:check": "prettier '**/*.{json,ts,tsx}' --check",
-    "lint": "eslint \"**/*.{json,js,ts}\"",
-    "lint:fix": "eslint \"**/*.{json,js,ts}\" --fix"
+    "prettier:write": "prettier '**/*.{json,js,ts,tsx}' --write",
+    "prettier:check": "prettier '**/*.{json,js,ts,tsx}' --check",
+    "lint": "eslint \"**/*.{json,js,ts,tsx}\"",
+    "lint:fix": "eslint \"**/*.{json,js,ts,tsx}\" --fix"
   },
   "lint-staged": {
-    "src/**/*.{json,ts,tsx}": [
+    "src/**/*.{json,ts,tsx,js}": [
       "npm run lint",
       "prettier:write"
     ]
