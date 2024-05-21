@@ -57,7 +57,7 @@
           "refId": "A"
         }
       ],
-      "title": "V Rising Server Logs",
+      "title": "V Rising Server Pod Logs",
       "type": "logs"
     }
   ],
@@ -74,7 +74,7 @@
   },
   "timepicker": {},
   "timezone": "",
-  "title": "V Rising Logs",
+  "title": "V Rising",
   "uid": "cff47999-a095-4874-8ac1-aa3015e22345",
   "version": 2,
   "weekStart": ""
