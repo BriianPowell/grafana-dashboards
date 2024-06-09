@@ -52,7 +52,7 @@
             "uid": "P8E80F9AEF21F6940"
           },
           "editorMode": "builder",
-          "expr": "{container=\"wiki-js\"} |= ``",
+          "expr": "{job=\"monitoring/wiki-js-app\"} |= ``",
           "queryType": "range",
           "refId": "A"
         }
@@ -90,7 +90,7 @@
             "uid": "P8E80F9AEF21F6940"
           },
           "editorMode": "builder",
-          "expr": "{container=\"wiki-js-postgressql-db\"} |= ``",
+          "expr": "{job=\"monitoring/wiki-js-db\"} |= ``",
           "queryType": "range",
           "refId": "A"
         }

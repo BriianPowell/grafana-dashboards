@@ -52,7 +52,7 @@
             "uid": "P8E80F9AEF21F6940"
           },
           "editorMode": "builder",
-          "expr": "{container=\"homeassistant\"}",
+          "expr": "{job=\"monitoring/homeassistant-app\"}",
           "key": "Q-716100cf-70a1-44dd-9262-5f5f5ee399fe-0",
           "queryType": "range",
           "refId": "A"
@@ -92,7 +92,7 @@
             "uid": "P8E80F9AEF21F6940"
           },
           "editorMode": "builder",
-          "expr": "{container=\"homeassistant-postgressql-db\"} |= ``",
+          "expr": "{job=\"monitoring/homeassistant-db\"} |= ``",
           "queryType": "range",
           "refId": "A"
         }

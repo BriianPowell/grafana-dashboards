@@ -52,7 +52,7 @@
             "uid": "P8E80F9AEF21F6940"
           },
           "editorMode": "builder",
-          "expr": "{container=\"minecraft-server-minecraft\"} |= ``",
+          "expr": "{job=\"monitoring/minecraft\"} |= ``",
           "queryType": "range",
           "refId": "A"
         }

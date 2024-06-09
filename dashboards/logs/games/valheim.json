@@ -52,7 +52,7 @@
             "uid": "P8E80F9AEF21F6940"
           },
           "editorMode": "builder",
-          "expr": "{container=\"valheim-server\"} |= ``",
+          "expr": "{job=\"monitoring/valheim\"} |= ``",
           "queryType": "range",
           "refId": "A"
         }

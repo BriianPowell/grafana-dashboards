@@ -52,7 +52,7 @@
             "uid": "P8E80F9AEF21F6940"
           },
           "editorMode": "builder",
-          "expr": "{container=\"keycloak\"} |= ``",
+          "expr": "{job=\"monitoring/keycloak-app\"} |= ``",
           "queryType": "range",
           "refId": "A"
         }
@@ -90,7 +90,7 @@
             "uid": "P8E80F9AEF21F6940"
           },
           "editorMode": "builder",
-          "expr": "{container=\"keycloak-postgressql-db\"} |= ``",
+          "expr": "{job=\"monitoring/keycloak-db\"} |= ``",
           "queryType": "range",
           "refId": "A"
         }

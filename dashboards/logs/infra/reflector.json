@@ -52,7 +52,7 @@
             "uid": "P8E80F9AEF21F6940"
           },
           "editorMode": "builder",
-          "expr": "{container=\"reflector\"} |= ``",
+          "expr": "{job=\"monitoring/reflector\"} |= ``",
           "queryType": "range",
           "refId": "A"
         }

@@ -52,7 +52,7 @@
             "uid": "P8E80F9AEF21F6940"
           },
           "editorMode": "builder",
-          "expr": "{container=\"crowdsec-lapi\"} |= ``",
+          "expr": "{job=\"monitoring/crowdsec-service\"} |= ``",
           "queryType": "range",
           "refId": "A"
         }
@@ -90,7 +90,7 @@
             "uid": "P8E80F9AEF21F6940"
           },
           "editorMode": "builder",
-          "expr": "{container=\"crowdsec-agent\"} |= ``",
+          "expr": "{job=\"monitoring/crowdsec-agent-service\"} |= ``",
           "queryType": "range",
           "refId": "A"
         }

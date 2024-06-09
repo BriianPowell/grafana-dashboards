@@ -52,7 +52,7 @@
             "uid": "P8E80F9AEF21F6940"
           },
           "editorMode": "builder",
-          "expr": "{container=\"v-rising-server\"} |= ``",
+          "expr": "{job=\"monitoring/v-rising\"} |= ``",
           "queryType": "range",
           "refId": "A"
         }

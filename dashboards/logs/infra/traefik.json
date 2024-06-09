@@ -52,7 +52,7 @@
             "uid": "P8E80F9AEF21F6940"
           },
           "editorMode": "builder",
-          "expr": "{container=\"traefik\"} |= ``",
+          "expr": "{job=\"monitoring/traefik\"} |= ``",
           "queryType": "range",
           "refId": "A"
         }
@@ -90,7 +90,7 @@
             "uid": "P8E80F9AEF21F6940"
           },
           "editorMode": "builder",
-          "expr": "{container=\"traefik-forward-auth\"} |= ``",
+          "expr": "{job=\"monitoring/forward-auth\"} |= ``",
           "queryType": "range",
           "refId": "A"
         }
