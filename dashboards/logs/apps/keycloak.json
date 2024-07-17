@@ -52,7 +52,7 @@
             "uid": "P8E80F9AEF21F6940"
           },
           "editorMode": "builder",
-          "expr": "{job=\"monitoring/keycloak-app\"} |= ``",
+          "expr": "{job=\"loki.source.kubernetes.keycloak_app\"} |= ``",
           "queryType": "range",
           "refId": "A"
         }
@@ -90,7 +90,7 @@
             "uid": "P8E80F9AEF21F6940"
           },
           "editorMode": "builder",
-          "expr": "{job=\"monitoring/keycloak-db\"} |= ``",
+          "expr": "{job=\"loki.source.kubernetes.keycloak_db\"} |= ``",
           "queryType": "range",
           "refId": "A"
         }
