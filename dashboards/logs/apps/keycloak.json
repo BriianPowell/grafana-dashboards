@@ -99,9 +99,8 @@
       "type": "logs"
     }
   ],
-  "refresh": "",
+  "refresh": "15s",
   "schemaVersion": 38,
-  "style": "dark",
   "tags": [],
   "templating": {
     "list": []
@@ -114,6 +113,6 @@
   "timezone": "",
   "title": "Keycloak",
   "uid": "e288ae2c-09e0-4748-9f7b-c273c523307d",
-  "version": 2,
+  "version": 1,
   "weekStart": ""
 }

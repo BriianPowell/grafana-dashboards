@@ -101,9 +101,8 @@
       "type": "logs"
     }
   ],
-  "refresh": "",
+  "refresh": "15s",
   "schemaVersion": 38,
-  "style": "dark",
   "tags": [],
   "templating": {
     "list": []
@@ -116,6 +115,6 @@
   "timezone": "",
   "title": "Home Assistant",
   "uid": "bfe5cd1c-0318-43ac-87b9-f8b04fda7f2e",
-  "version": 17,
+  "version": 1,
   "weekStart": ""
 }

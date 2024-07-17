@@ -52,7 +52,7 @@
             "uid": "P8E80F9AEF21F6940"
           },
           "editorMode": "builder",
-          "expr": "{job=\"monitoring/valheim\"} |= ``",
+          "expr": "{job=\"loki.source.kubernetes.valheim_server\"} |= ``",
           "queryType": "range",
           "refId": "A"
         }
@@ -61,9 +61,8 @@
       "type": "logs"
     }
   ],
-  "refresh": "",
+  "refresh": "15",
   "schemaVersion": 38,
-  "style": "dark",
   "tags": [],
   "templating": {
     "list": []
