@@ -61,7 +61,7 @@
       "type": "logs"
     }
   ],
-  "refresh" : "15s",
+  "refresh": "15s",
   "schemaVersion": 38,
   "tags": [],
   "templating": {

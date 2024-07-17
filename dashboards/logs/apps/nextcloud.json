@@ -18,7 +18,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 4,
+  "id": 36,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -103,50 +103,12 @@
         "type": "loki",
         "uid": "P8E80F9AEF21F6940"
       },
-      "description": "Logs from the Nextcloud Exporter pod",
-      "gridPos": {
-        "h": 10,
-        "w": 24,
-        "x": 0,
-        "y": 20
-      },
-      "id": 2,
-      "options": {
-        "dedupStrategy": "none",
-        "enableLogDetails": true,
-        "prettifyLogMessage": false,
-        "showCommonLabels": false,
-        "showLabels": false,
-        "showTime": false,
-        "sortOrder": "Descending",
-        "wrapLogMessage": false
-      },
-      "targets": [
-        {
-          "datasource": {
-            "type": "loki",
-            "uid": "P8E80F9AEF21F6940"
-          },
-          "editorMode": "builder",
-          "expr": "{job=\"loki.source.kubernetes.nextcloud_app\"} |= ``",
-          "queryType": "range",
-          "refId": "A"
-        }
-      ],
-      "title": "Nextcloud Exporter Container Logs",
-      "type": "logs"
-    },
-    {
-      "datasource": {
-        "type": "loki",
-        "uid": "P8E80F9AEF21F6940"
-      },
       "description": "Logs from the Nextcloud redis pod",
       "gridPos": {
         "h": 10,
         "w": 12,
         "x": 0,
-        "y": 30
+        "y": 20
       },
       "id": 4,
       "options": {
@@ -184,7 +146,7 @@
         "h": 10,
         "w": 12,
         "x": 12,
-        "y": 30
+        "y": 20
       },
       "id": 5,
       "options": {
@@ -214,7 +176,7 @@
     }
   ],
   "refresh": "15s",
-  "schemaVersion": 38,
+  "schemaVersion": 39,
   "tags": [],
   "templating": {
     "list": []
