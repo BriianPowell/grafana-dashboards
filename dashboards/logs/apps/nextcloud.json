@@ -52,7 +52,7 @@
             "uid": "P8E80F9AEF21F6940"
           },
           "editorMode": "builder",
-          "expr": "{job=\"monitoring/nextcloud-app\"} |= ``",
+          "expr": "{job=\"loki.source.kubernetes.nextcloud_app\"} |= ``",
           "queryType": "range",
           "refId": "A"
         }
@@ -90,7 +90,7 @@
             "uid": "P8E80F9AEF21F6940"
           },
           "editorMode": "builder",
-          "expr": "{job=\"monitoring/nextcloud-db\"} |= ``",
+          "expr": "{job=\"loki.source.kubernetes.nextcloud_db\"} |= ``",
           "queryType": "range",
           "refId": "A"
         }
@@ -128,7 +128,7 @@
             "uid": "P8E80F9AEF21F6940"
           },
           "editorMode": "builder",
-          "expr": "{job=\"monitoring/nextcloud-app\"} |= ``",
+          "expr": "{job=\"loki.source.kubernetes.nextcloud_app\"} |= ``",
           "queryType": "range",
           "refId": "A"
         }
@@ -166,7 +166,7 @@
             "uid": "P8E80F9AEF21F6940"
           },
           "editorMode": "builder",
-          "expr": "{job=\"monitoring/nextcloud-redis\"} |= ``",
+          "expr": "{job=\"loki.source.kubernetes.nextcloud_redis\"} |= ``",
           "queryType": "range",
           "refId": "A"
         }
@@ -204,7 +204,7 @@
             "uid": "P8E80F9AEF21F6940"
           },
           "editorMode": "builder",
-          "expr": "{job=\"monitoring/nextcloud-cron\"} |= ``",
+          "expr": "{job=\"loki.source.kubernetes.nextcloud_cron\"} |= ``",
           "queryType": "range",
           "refId": "A"
         }
@@ -213,9 +213,8 @@
       "type": "logs"
     }
   ],
-  "refresh": "",
+  "refresh": "15s",
   "schemaVersion": 38,
-  "style": "dark",
   "tags": [],
   "templating": {
     "list": []
@@ -228,6 +227,6 @@
   "timezone": "",
   "title": "Nextcloud",
   "uid": "c8dc9edc-a05f-455f-8d0c-bbccb1eca42c",
-  "version": 4,
+  "version": 1,
   "weekStart": ""
 }

@@ -52,7 +52,7 @@
             "uid": "P8E80F9AEF21F6940"
           },
           "editorMode": "builder",
-          "expr": "{job=\"monitoring/traefik\"} |= ``",
+          "expr": "{job=\"loki.source.kubernetes.traefik_app\"} |= ``",
           "queryType": "range",
           "refId": "A"
         }
@@ -90,7 +90,7 @@
             "uid": "P8E80F9AEF21F6940"
           },
           "editorMode": "builder",
-          "expr": "{job=\"monitoring/forward-auth\"} |= ``",
+          "expr": "{job=\"loki.source.kubernetes.traefik_forward_auth\"} |= ``",
           "queryType": "range",
           "refId": "A"
         }
@@ -99,9 +99,8 @@
       "type": "logs"
     }
   ],
-  "refresh": "",
+  "refresh": "15s",
   "schemaVersion": 38,
-  "style": "dark",
   "tags": [],
   "templating": {
     "list": []
@@ -114,6 +113,6 @@
   "timezone": "",
   "title": "Traefik",
   "uid": "b8e066c8-2b97-490f-b765-5819d2139ca1",
-  "version": 2,
+  "version": 1,
   "weekStart": ""
 }

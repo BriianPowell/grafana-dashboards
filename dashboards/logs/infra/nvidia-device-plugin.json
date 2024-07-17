@@ -18,7 +18,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 33,
+  "id": 31,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -27,7 +27,7 @@
         "type": "loki",
         "uid": "P8E80F9AEF21F6940"
       },
-      "description": "Logs from the Pihole application pod",
+      "description": "Logs from the Nvidia Device Plugin application pod",
       "gridPos": {
         "h": 24,
         "w": 24,
@@ -52,16 +52,16 @@
             "uid": "P8E80F9AEF21F6940"
           },
           "editorMode": "builder",
-          "expr": "{job=\"loki.source.kubernetes.pihole\"} |= ``",
+          "expr": "{job=\"loki.source.kubernetes.nvidia_device_plugin\"} |= ``",
           "queryType": "range",
           "refId": "A"
         }
       ],
-      "title": "Pihole Application Container Logs",
+      "title": "Nvidia Device Plugin Container Logs",
       "type": "logs"
     }
   ],
-  "refresh" : "15s",
+  "refresh": "15s",
   "schemaVersion": 38,
   "tags": [],
   "templating": {
@@ -73,7 +73,7 @@
   },
   "timepicker": {},
   "timezone": "",
-  "title": "Pihole",
+  "title": "Nvidia Device Plugin",
   "version": 1,
   "weekStart": ""
 }

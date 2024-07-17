@@ -52,7 +52,7 @@
             "uid": "P8E80F9AEF21F6940"
           },
           "editorMode": "builder",
-          "expr": "{job=\"monitoring/wiki-js-app\"} |= ``",
+          "expr": "{job=\"loki.source.kubernetes.wiki_js_app\"} |= ``",
           "queryType": "range",
           "refId": "A"
         }
@@ -90,7 +90,7 @@
             "uid": "P8E80F9AEF21F6940"
           },
           "editorMode": "builder",
-          "expr": "{job=\"monitoring/wiki-js-db\"} |= ``",
+          "expr": "{job=\"loki.source.kubernetes.wiki_js_db\"} |= ``",
           "queryType": "range",
           "refId": "A"
         }
@@ -99,9 +99,8 @@
       "type": "logs"
     }
   ],
-  "refresh": "",
+  "refresh": "15s",
   "schemaVersion": 38,
-  "style": "dark",
   "tags": [],
   "templating": {
     "list": []
@@ -114,6 +113,6 @@
   "timezone": "",
   "title": "Wiki.JS",
   "uid": "e7535c2a-f759-427c-b0ba-e2c815cb1f36",
-  "version": 2,
+  "version": 1,
   "weekStart": ""
 }
