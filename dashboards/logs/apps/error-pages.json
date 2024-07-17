@@ -18,7 +18,9 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
+  "id": 30,
   "links": [],
+  "liveNow": false,
   "panels": [
     {
       "datasource": {
@@ -50,7 +52,7 @@
             "uid": "P8E80F9AEF21F6940"
           },
           "editorMode": "builder",
-          "expr": "{job=\"monitoring/error-pages\"} |= ``",
+          "expr": "{job=\"loki.source.kubernetes.error_pages\"} |= ``",
           "queryType": "range",
           "refId": "A"
         }
@@ -59,7 +61,8 @@
       "type": "logs"
     }
   ],
-  "schemaVersion": 39,
+  "refresh": "15s",
+  "schemaVersion": 38,
   "tags": [],
   "templating": {
     "list": []
@@ -68,10 +71,9 @@
     "from": "now-6h",
     "to": "now"
   },
-  "timeRangeUpdatedDuringEditOrView": false,
   "timepicker": {},
   "timezone": "",
   "title": "Error Pages",
-  "version": 0,
+  "version": 1,
   "weekStart": ""
 }
