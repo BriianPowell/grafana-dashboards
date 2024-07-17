@@ -52,7 +52,7 @@
             "uid": "P8E80F9AEF21F6940"
           },
           "editorMode": "builder",
-          "expr": "{job=\"monitoring/homeassistant-app\"}",
+          "expr": "{job=\"loki.source.kubernetes.homeassistant_app\"}",
           "key": "Q-716100cf-70a1-44dd-9262-5f5f5ee399fe-0",
           "queryType": "range",
           "refId": "A"
@@ -92,7 +92,7 @@
             "uid": "P8E80F9AEF21F6940"
           },
           "editorMode": "builder",
-          "expr": "{job=\"monitoring/homeassistant-db\"} |= ``",
+          "expr": "{job=\"loki.source.kubernetes.homeassistant_db\"} |= ``",
           "queryType": "range",
           "refId": "A"
         }
