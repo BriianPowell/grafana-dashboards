@@ -57,7 +57,7 @@
           "refId": "A"
         }
       ],
-      "title": "Nextcloud Application Container Logs",
+      "title": "Nextcloud Container Logs",
       "type": "logs"
     },
     {

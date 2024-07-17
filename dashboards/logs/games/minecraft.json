@@ -57,7 +57,7 @@
           "refId": "A"
         }
       ],
-      "title": "Minecraft Server Pod Logs",
+      "title": "Minecraft Server Container Logs",
       "type": "logs"
     }
   ],

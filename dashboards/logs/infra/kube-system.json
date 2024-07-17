@@ -57,7 +57,7 @@
           "refId": "A"
         }
       ],
-      "title": "Local Path Provisioner Application Logs",
+      "title": "Local Path Provisioner Container Logs",
       "type": "logs"
     },
     {

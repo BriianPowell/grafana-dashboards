@@ -57,7 +57,7 @@
           "refId": "A"
         }
       ],
-      "title": "Pihole Application Container Logs",
+      "title": "Pihole Container Logs",
       "type": "logs"
     }
   ],

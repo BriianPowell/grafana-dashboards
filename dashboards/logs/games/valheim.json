@@ -57,7 +57,7 @@
           "refId": "A"
         }
       ],
-      "title": "Valheim Server Pod Logs",
+      "title": "Valheim Server Container Logs",
       "type": "logs"
     }
   ],

@@ -58,7 +58,7 @@
           "refId": "A"
         }
       ],
-      "title": "Home Assistant Application Container Logs ",
+      "title": "Home Assistant Container Logs ",
       "type": "logs"
     },
     {

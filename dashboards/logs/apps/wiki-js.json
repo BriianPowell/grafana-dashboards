@@ -57,7 +57,7 @@
           "refId": "A"
         }
       ],
-      "title": "Wiki.Js Application Container Logs",
+      "title": "Wiki.Js Container Logs",
       "type": "logs"
     },
     {
@@ -65,7 +65,7 @@
         "type": "loki",
         "uid": "P8E80F9AEF21F6940"
       },
-      "description": "Logs from the Wiki.Js database pod",
+      "description": "Logs from the Wiki.Js database application pod",
       "gridPos": {
         "h": 10,
         "w": 24,

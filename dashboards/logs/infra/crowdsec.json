@@ -57,7 +57,7 @@
           "refId": "A"
         }
       ],
-      "title": "Crowdsec LAPI Application Container Logs",
+      "title": "Crowdsec LAPI Container Logs",
       "type": "logs"
     },
     {
@@ -95,7 +95,7 @@
           "refId": "A"
         }
       ],
-      "title": "Crowdsec Agent Application Container Logs",
+      "title": "Crowdsec Agent Container Logs",
       "type": "logs"
     }
   ],

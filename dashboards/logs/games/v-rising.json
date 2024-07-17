@@ -57,7 +57,7 @@
           "refId": "A"
         }
       ],
-      "title": "V Rising Server Pod Logs",
+      "title": "V Rising Server Container Logs",
       "type": "logs"
     }
   ],

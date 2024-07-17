@@ -57,7 +57,7 @@
           "refId": "A"
         }
       ],
-      "title": "Traefik Application Container Logs",
+      "title": "Traefik Container Logs",
       "type": "logs"
     },
     {

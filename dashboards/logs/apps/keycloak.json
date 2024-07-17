@@ -57,7 +57,7 @@
           "refId": "A"
         }
       ],
-      "title": "Keycloak Application Container Logs",
+      "title": "Keycloak Container Logs",
       "type": "logs"
     },
     {
