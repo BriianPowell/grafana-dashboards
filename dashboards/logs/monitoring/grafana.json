@@ -63,7 +63,7 @@
   ],
   "refresh": "15s",
   "schemaVersion": 39,
-  "tags": [],
+  "tags": ["grafana", "logs", "monitoring"],
   "templating": {
     "list": []
   },

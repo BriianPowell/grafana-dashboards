@@ -63,7 +63,7 @@
   ],
   "refresh": "15s",
   "schemaVersion": 39,
-  "tags": [],
+  "tags": ["alloy", "logs", "monitoring"],
   "templating": {
     "list": []
   },

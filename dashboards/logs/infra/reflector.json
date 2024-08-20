@@ -63,7 +63,7 @@
   ],
   "refresh": "15s",
   "schemaVersion": 38,
-  "tags": [],
+  "tags": ["reflector", "logs"],
   "templating": {
     "list": []
   },

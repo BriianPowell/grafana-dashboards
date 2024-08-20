@@ -139,7 +139,7 @@
   ],
   "refresh": "15s",
   "schemaVersion": 38,
-  "tags": [],
+  "tags": ["cert-manager", "logs"],
   "templating": {
     "list": []
   },

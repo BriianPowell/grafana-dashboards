@@ -63,7 +63,7 @@
   ],
   "refresh": "15",
   "schemaVersion": 38,
-  "tags": [],
+  "tags": ["valheim", "logs", "game-server"],
   "templating": {
     "list": []
   },

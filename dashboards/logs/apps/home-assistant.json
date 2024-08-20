@@ -103,7 +103,7 @@
   ],
   "refresh": "15s",
   "schemaVersion": 38,
-  "tags": [],
+  "tags": ["home-assistant", "logs"],
   "templating": {
     "list": []
   },

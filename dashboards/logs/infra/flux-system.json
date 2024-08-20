@@ -215,7 +215,7 @@
   ],
   "refresh": "15s",
   "schemaVersion": 39,
-  "tags": [],
+  "tags": ["flux", "logs", "flux-system"],
   "templating": {
     "list": []
   },

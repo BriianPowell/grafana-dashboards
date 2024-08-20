@@ -63,7 +63,7 @@
   ],
   "refresh": "15s",
   "schemaVersion": 38,
-  "tags": [],
+  "tags": ["v-rising", "logs", "game-server"],
   "templating": {
     "list": []
   },

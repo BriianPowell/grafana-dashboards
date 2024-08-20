@@ -63,7 +63,7 @@
   ],
   "refresh": "15s",
   "schemaVersion": 39,
-  "tags": [],
+  "tags": ["cnpg", "logs"],
   "templating": {
     "list": []
   },

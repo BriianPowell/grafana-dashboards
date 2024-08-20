@@ -63,7 +63,7 @@
   ],
   "refresh": "15s",
   "schemaVersion": 39,
-  "tags": [],
+  "tags": ["alert-manager", "logs", "monitoring"],
   "templating": {
     "list": []
   },
