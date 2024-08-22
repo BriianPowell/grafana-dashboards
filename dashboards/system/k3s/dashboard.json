@@ -25,8 +25,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "gnetId": 15282,
-  "graphTooltip": 1,
-  "id": 86,
+  "graphTooltip": 2,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -849,7 +848,7 @@
           "refId": "A"
         }
       ],
-      "title": "Usage total",
+      "title": "Usage Total",
       "type": "row"
     },
     {
@@ -962,7 +961,7 @@
           "step": 10
         }
       ],
-      "title": "Network I/O pressure",
+      "title": "Network I/O Pressure",
       "type": "timeseries"
     },
     {
@@ -1062,7 +1061,7 @@
           "step": 10
         }
       ],
-      "title": "CPU use by namespace",
+      "title": "CPU Usage by Namespace",
       "type": "timeseries"
     },
     {
@@ -1162,7 +1161,7 @@
           "step": 10
         }
       ],
-      "title": "Memory use by namespace",
+      "title": "Memory Usage by Namespace",
       "type": "timeseries"
     },
     {
@@ -1188,7 +1187,7 @@
           "refId": "A"
         }
       ],
-      "title": "Pods CPU usage",
+      "title": "Pod CPU Usage",
       "type": "row"
     },
     {
@@ -1289,7 +1288,7 @@
           "step": 10
         }
       ],
-      "title": "Pods CPU usage (5m avg)",
+      "title": "Pod CPU Usage [5m AVG]",
       "type": "timeseries"
     },
     {
@@ -1315,7 +1314,7 @@
           "refId": "A"
         }
       ],
-      "title": "Containers CPU usage",
+      "title": "Container CPU Usage",
       "type": "row"
     },
     {
@@ -1445,7 +1444,7 @@
           "step": 10
         }
       ],
-      "title": "Containers CPU usage (5m avg)",
+      "title": "Container CPU Usage [5m AVG]",
       "type": "timeseries"
     },
     {
@@ -1471,7 +1470,7 @@
           "refId": "A"
         }
       ],
-      "title": "All processes CPU usage",
+      "title": "All Processes CPU Usage",
       "type": "row"
     },
     {
@@ -1572,7 +1571,7 @@
           "step": 10
         }
       ],
-      "title": "All processes CPU usage (5m avg)",
+      "title": "All Processes CPU Usage [5m AVG]",
       "type": "timeseries"
     },
     {
@@ -1598,7 +1597,7 @@
           "refId": "A"
         }
       ],
-      "title": "Pods memory usage",
+      "title": "Pod Memory Usage",
       "type": "row"
     },
     {
@@ -1698,7 +1697,7 @@
           "step": 10
         }
       ],
-      "title": "Pods memory usage",
+      "title": "Pod Memory Usage",
       "type": "timeseries"
     },
     {
@@ -1724,7 +1723,7 @@
           "refId": "A"
         }
       ],
-      "title": "Containers memory usage",
+      "title": "Container Memory Usage",
       "type": "row"
     },
     {
@@ -1851,7 +1850,7 @@
           "step": 10
         }
       ],
-      "title": "Containers memory usage",
+      "title": "Container Memory Usage",
       "type": "timeseries"
     },
     {
@@ -1877,7 +1876,7 @@
           "refId": "A"
         }
       ],
-      "title": "All processes memory usage",
+      "title": "All Processes Memory Usage",
       "type": "row"
     },
     {
@@ -1976,7 +1975,7 @@
           "step": 10
         }
       ],
-      "title": "All processes memory usage",
+      "title": "All Processes Memory Usage",
       "type": "timeseries"
     },
     {
@@ -2002,7 +2001,7 @@
           "refId": "A"
         }
       ],
-      "title": "Pods network I/O",
+      "title": "Pod Network I/O",
       "type": "row"
     },
     {
@@ -2117,7 +2116,7 @@
           "step": 10
         }
       ],
-      "title": "Pods network I/O (5m avg)",
+      "title": "Pod Network I/O [5m AVG]",
       "type": "timeseries"
     },
     {
@@ -2143,7 +2142,7 @@
           "refId": "A"
         }
       ],
-      "title": "Containers network I/O",
+      "title": "Container Network I/O",
       "type": "row"
     },
     {
@@ -2318,19 +2317,19 @@
           "step": 10
         }
       ],
-      "title": "Containers network I/O (5m avg)",
+      "title": "Container Network I/O [5m AVG]",
       "type": "timeseries"
     }
   ],
   "refresh": "1m",
   "schemaVersion": 39,
-  "tags": ["kubernetes", "prometheus"],
+  "tags": ["kubernetes", "prometheus", "k3s"],
   "templating": {
     "list": [
       {
         "allValue": ".*",
         "current": {
-          "selected": true,
+          "selected": false,
           "text": "All",
           "value": "$__all"
         },
@@ -2360,7 +2359,7 @@
       {
         "allValue": ".*",
         "current": {
-          "selected": false,
+          "selected": true,
           "text": ["All"],
           "value": ["$__all"]
         },
@@ -2409,7 +2408,8 @@
     "time_options": ["5m", "15m", "1h", "6h", "12h", "24h", "2d", "7d", "30d"]
   },
   "timezone": "browser",
-  "title": "K3S cluster monitoring",
+  "title": "K3S Cluster Monitoring",
+  "uid": "k3s-cluster-monitoring",
   "version": 1,
   "weekStart": ""
 }
