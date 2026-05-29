@@ -16,11 +16,7 @@
     ]
   },
   "editable": true,
-  "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 30,
-  "links": [],
-  "liveNow": false,
   "panels": [
     {
       "datasource": {
@@ -34,16 +30,15 @@
         "x": 0,
         "y": 0
       },
-      "id": 1,
       "options": {
         "dedupStrategy": "none",
         "enableLogDetails": true,
-        "prettifyLogMessage": false,
+        "prettifyLogMessage": true,
         "showCommonLabels": false,
-        "showLabels": false,
-        "showTime": false,
+        "showLabels": true,
+        "showTime": true,
         "sortOrder": "Descending",
-        "wrapLogMessage": false
+        "wrapLogMessage": true
       },
       "targets": [
         {
@@ -51,8 +46,8 @@
             "type": "loki",
             "uid": "P8E80F9AEF21F6940"
           },
-          "editorMode": "builder",
-          "expr": "{job=\"loki.source.kubernetes.error_pages\"} |= ``",
+          "editorMode": "code",
+          "expr": "{job=\"loki.source.kubernetes.error_pages\"}",
           "queryType": "range",
           "refId": "A"
         }
@@ -61,19 +56,17 @@
       "type": "logs"
     }
   ],
-  "refresh": "15s",
-  "schemaVersion": 38,
-  "tags": ["error-pages", "logs", "kube-system"],
-  "templating": {
-    "list": []
-  },
+  "refresh": "10s",
+  "schemaVersion": 39,
+  "tags": [
+    "error-pages",
+    "logs",
+    "kube-system"
+  ],
   "time": {
     "from": "now-6h",
     "to": "now"
   },
-  "timepicker": {},
-  "timezone": "",
   "title": "Error Pages",
-  "version": 1,
-  "weekStart": ""
+  "version": 1
 }

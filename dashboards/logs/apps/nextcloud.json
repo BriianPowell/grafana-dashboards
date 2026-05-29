@@ -16,11 +16,7 @@
     ]
   },
   "editable": true,
-  "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 36,
-  "links": [],
-  "liveNow": false,
   "panels": [
     {
       "datasource": {
@@ -29,21 +25,20 @@
       },
       "description": "Logs from the Nextcloud application pod",
       "gridPos": {
-        "h": 10,
+        "h": 6,
         "w": 24,
         "x": 0,
         "y": 0
       },
-      "id": 1,
       "options": {
         "dedupStrategy": "none",
         "enableLogDetails": true,
-        "prettifyLogMessage": false,
+        "prettifyLogMessage": true,
         "showCommonLabels": false,
-        "showLabels": false,
-        "showTime": false,
+        "showLabels": true,
+        "showTime": true,
         "sortOrder": "Descending",
-        "wrapLogMessage": false
+        "wrapLogMessage": true
       },
       "targets": [
         {
@@ -51,8 +46,8 @@
             "type": "loki",
             "uid": "P8E80F9AEF21F6940"
           },
-          "editorMode": "builder",
-          "expr": "{job=\"loki.source.kubernetes.nextcloud_app\"} |= ``",
+          "editorMode": "code",
+          "expr": "{job=\"loki.source.kubernetes.nextcloud_app\"}",
           "queryType": "range",
           "refId": "A"
         }
@@ -67,21 +62,20 @@
       },
       "description": "Logs from the Nextcloud database pod",
       "gridPos": {
-        "h": 10,
+        "h": 6,
         "w": 24,
         "x": 0,
-        "y": 10
+        "y": 6
       },
-      "id": 3,
       "options": {
         "dedupStrategy": "none",
         "enableLogDetails": true,
-        "prettifyLogMessage": false,
+        "prettifyLogMessage": true,
         "showCommonLabels": false,
-        "showLabels": false,
-        "showTime": false,
+        "showLabels": true,
+        "showTime": true,
         "sortOrder": "Descending",
-        "wrapLogMessage": false
+        "wrapLogMessage": true
       },
       "targets": [
         {
@@ -89,8 +83,8 @@
             "type": "loki",
             "uid": "P8E80F9AEF21F6940"
           },
-          "editorMode": "builder",
-          "expr": "{job=\"loki.source.kubernetes.nextcloud_db\"} |= ``",
+          "editorMode": "code",
+          "expr": "{job=\"loki.source.kubernetes.nextcloud_db\"}",
           "queryType": "range",
           "refId": "A"
         }
@@ -105,21 +99,20 @@
       },
       "description": "Logs from the Nextcloud redis pod",
       "gridPos": {
-        "h": 10,
-        "w": 12,
+        "h": 6,
+        "w": 24,
         "x": 0,
-        "y": 20
+        "y": 12
       },
-      "id": 4,
       "options": {
         "dedupStrategy": "none",
         "enableLogDetails": true,
-        "prettifyLogMessage": false,
+        "prettifyLogMessage": true,
         "showCommonLabels": false,
-        "showLabels": false,
-        "showTime": false,
+        "showLabels": true,
+        "showTime": true,
         "sortOrder": "Descending",
-        "wrapLogMessage": false
+        "wrapLogMessage": true
       },
       "targets": [
         {
@@ -127,8 +120,8 @@
             "type": "loki",
             "uid": "P8E80F9AEF21F6940"
           },
-          "editorMode": "builder",
-          "expr": "{job=\"loki.source.kubernetes.nextcloud_redis\"} |= ``",
+          "editorMode": "code",
+          "expr": "{job=\"loki.source.kubernetes.nextcloud_redis\"}",
           "queryType": "range",
           "refId": "A"
         }
@@ -143,21 +136,20 @@
       },
       "description": "Logs from the Nextcloud cron pod",
       "gridPos": {
-        "h": 10,
-        "w": 12,
-        "x": 12,
-        "y": 20
+        "h": 6,
+        "w": 24,
+        "x": 0,
+        "y": 18
       },
-      "id": 5,
       "options": {
         "dedupStrategy": "none",
         "enableLogDetails": true,
-        "prettifyLogMessage": false,
+        "prettifyLogMessage": true,
         "showCommonLabels": false,
-        "showLabels": false,
-        "showTime": false,
+        "showLabels": true,
+        "showTime": true,
         "sortOrder": "Descending",
-        "wrapLogMessage": false
+        "wrapLogMessage": true
       },
       "targets": [
         {
@@ -165,8 +157,8 @@
             "type": "loki",
             "uid": "P8E80F9AEF21F6940"
           },
-          "editorMode": "builder",
-          "expr": "{job=\"loki.source.kubernetes.nextcloud_cron\"} |= ``",
+          "editorMode": "code",
+          "expr": "{job=\"loki.source.kubernetes.nextcloud_cron\"}",
           "queryType": "range",
           "refId": "A"
         }
@@ -175,19 +167,16 @@
       "type": "logs"
     }
   ],
-  "refresh": "15s",
+  "refresh": "10s",
   "schemaVersion": 39,
-  "tags": ["nextcloud", "logs"],
-  "templating": {
-    "list": []
-  },
+  "tags": [
+    "nextcloud",
+    "logs"
+  ],
   "time": {
     "from": "now-6h",
     "to": "now"
   },
-  "timepicker": {},
-  "timezone": "",
   "title": "Nextcloud",
-  "version": 1,
-  "weekStart": ""
+  "version": 1
 }

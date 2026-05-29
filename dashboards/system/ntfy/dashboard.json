@@ -22,11 +22,7 @@
     ]
   },
   "editable": true,
-  "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 98,
-  "links": [],
-  "liveNow": false,
   "panels": [
     {
       "collapsed": false,
@@ -78,7 +74,9 @@
         "orientation": "auto",
         "percentChangeColorMode": "standard",
         "reduceOptions": {
-          "calcs": ["last"],
+          "calcs": [
+            "last"
+          ],
           "fields": "",
           "values": false
         },
@@ -140,7 +138,9 @@
         "orientation": "auto",
         "percentChangeColorMode": "standard",
         "reduceOptions": {
-          "calcs": ["last"],
+          "calcs": [
+            "last"
+          ],
           "fields": "",
           "values": false
         },
@@ -202,7 +202,9 @@
         "orientation": "auto",
         "percentChangeColorMode": "standard",
         "reduceOptions": {
-          "calcs": ["last"],
+          "calcs": [
+            "last"
+          ],
           "fields": "",
           "values": false
         },
@@ -269,7 +271,9 @@
         "orientation": "auto",
         "percentChangeColorMode": "standard",
         "reduceOptions": {
-          "calcs": ["last"],
+          "calcs": [
+            "last"
+          ],
           "fields": "",
           "values": false
         },
@@ -332,7 +336,9 @@
         "orientation": "auto",
         "percentChangeColorMode": "standard",
         "reduceOptions": {
-          "calcs": ["last"],
+          "calcs": [
+            "last"
+          ],
           "fields": "",
           "values": false
         },
@@ -395,7 +401,9 @@
         "orientation": "auto",
         "percentChangeColorMode": "standard",
         "reduceOptions": {
-          "calcs": ["last"],
+          "calcs": [
+            "last"
+          ],
           "fields": "",
           "values": false
         },
@@ -1064,7 +1072,9 @@
       "id": 41,
       "options": {
         "legend": {
-          "calcs": ["mean"],
+          "calcs": [
+            "mean"
+          ],
           "displayMode": "table",
           "placement": "right",
           "showLegend": true,
@@ -1160,7 +1170,9 @@
       "id": 16,
       "options": {
         "legend": {
-          "calcs": ["mean"],
+          "calcs": [
+            "mean"
+          ],
           "displayMode": "table",
           "placement": "right",
           "showLegend": true,
@@ -2310,7 +2322,10 @@
   "refresh": "10s",
   "revision": 1,
   "schemaVersion": 39,
-  "tags": ["ntfy", "kube-system"],
+  "tags": [
+    "ntfy",
+    "kube-system"
+  ],
   "templating": {
     "list": [
       {
@@ -2392,10 +2407,6 @@
     "from": "now-24h",
     "to": "now"
   },
-  "timepicker": {},
-  "timezone": "",
   "title": "Ntfy App",
-  "uid": "ntfy-app",
-  "version": 1,
-  "weekStart": ""
+  "version": 1
 }

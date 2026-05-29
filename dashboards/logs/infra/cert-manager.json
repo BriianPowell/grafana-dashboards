@@ -16,11 +16,7 @@
     ]
   },
   "editable": true,
-  "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 7,
-  "links": [],
-  "liveNow": false,
   "panels": [
     {
       "datasource": {
@@ -29,21 +25,20 @@
       },
       "description": "Logs from the Cert Manager Controller application pod",
       "gridPos": {
-        "h": 10,
+        "h": 8,
         "w": 24,
         "x": 0,
         "y": 0
       },
-      "id": 1,
       "options": {
         "dedupStrategy": "none",
         "enableLogDetails": true,
-        "prettifyLogMessage": false,
+        "prettifyLogMessage": true,
         "showCommonLabels": false,
-        "showLabels": false,
-        "showTime": false,
+        "showLabels": true,
+        "showTime": true,
         "sortOrder": "Descending",
-        "wrapLogMessage": false
+        "wrapLogMessage": true
       },
       "targets": [
         {
@@ -51,8 +46,8 @@
             "type": "loki",
             "uid": "P8E80F9AEF21F6940"
           },
-          "editorMode": "builder",
-          "expr": "{job=\"loki.source.kubernetes.cert_manager_controller\"} |= ``",
+          "editorMode": "code",
+          "expr": "{job=\"loki.source.kubernetes.cert_manager_controller\"}",
           "queryType": "range",
           "refId": "A"
         }
@@ -67,21 +62,20 @@
       },
       "description": "Logs from Cert Manager Webhook application pod",
       "gridPos": {
-        "h": 11,
+        "h": 8,
         "w": 24,
         "x": 0,
-        "y": 10
+        "y": 8
       },
-      "id": 2,
       "options": {
         "dedupStrategy": "none",
         "enableLogDetails": true,
-        "prettifyLogMessage": false,
+        "prettifyLogMessage": true,
         "showCommonLabels": false,
-        "showLabels": false,
-        "showTime": false,
+        "showLabels": true,
+        "showTime": true,
         "sortOrder": "Descending",
-        "wrapLogMessage": false
+        "wrapLogMessage": true
       },
       "targets": [
         {
@@ -89,8 +83,8 @@
             "type": "loki",
             "uid": "P8E80F9AEF21F6940"
           },
-          "editorMode": "builder",
-          "expr": "{job=\"loki.source.kubernetes.cert_manager_webhook\"} |= ``",
+          "editorMode": "code",
+          "expr": "{job=\"loki.source.kubernetes.cert_manager_webhook\"}",
           "queryType": "range",
           "refId": "A"
         }
@@ -105,21 +99,20 @@
       },
       "description": "Logs from the Cert Manager CaInjector application pod",
       "gridPos": {
-        "h": 10,
+        "h": 8,
         "w": 24,
         "x": 0,
-        "y": 21
+        "y": 16
       },
-      "id": 3,
       "options": {
         "dedupStrategy": "none",
         "enableLogDetails": true,
-        "prettifyLogMessage": false,
+        "prettifyLogMessage": true,
         "showCommonLabels": false,
-        "showLabels": false,
-        "showTime": false,
+        "showLabels": true,
+        "showTime": true,
         "sortOrder": "Descending",
-        "wrapLogMessage": false
+        "wrapLogMessage": true
       },
       "targets": [
         {
@@ -127,8 +120,8 @@
             "type": "loki",
             "uid": "P8E80F9AEF21F6940"
           },
-          "editorMode": "builder",
-          "expr": "{job=\"loki.source.kubernetes.cert_manager_cainjector\"} |= ``",
+          "editorMode": "code",
+          "expr": "{job=\"loki.source.kubernetes.cert_manager_cainjector\"}",
           "queryType": "range",
           "refId": "A"
         }
@@ -137,19 +130,16 @@
       "type": "logs"
     }
   ],
-  "refresh": "15s",
-  "schemaVersion": 38,
-  "tags": ["cert-manager", "logs"],
-  "templating": {
-    "list": []
-  },
+  "refresh": "10s",
+  "schemaVersion": 39,
+  "tags": [
+    "cert-manager",
+    "logs"
+  ],
   "time": {
     "from": "now-6h",
     "to": "now"
   },
-  "timepicker": {},
-  "timezone": "",
   "title": "Cert Manager",
-  "version": 1,
-  "weekStart": ""
+  "version": 1
 }

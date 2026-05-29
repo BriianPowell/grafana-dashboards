@@ -16,11 +16,7 @@
     ]
   },
   "editable": true,
-  "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 6,
-  "links": [],
-  "liveNow": false,
   "panels": [
     {
       "datasource": {
@@ -29,21 +25,20 @@
       },
       "description": "Logs from the Wiki.Js application pod",
       "gridPos": {
-        "h": 10,
+        "h": 12,
         "w": 24,
         "x": 0,
         "y": 0
       },
-      "id": 1,
       "options": {
         "dedupStrategy": "none",
         "enableLogDetails": true,
-        "prettifyLogMessage": false,
+        "prettifyLogMessage": true,
         "showCommonLabels": false,
-        "showLabels": false,
-        "showTime": false,
+        "showLabels": true,
+        "showTime": true,
         "sortOrder": "Descending",
-        "wrapLogMessage": false
+        "wrapLogMessage": true
       },
       "targets": [
         {
@@ -51,8 +46,8 @@
             "type": "loki",
             "uid": "P8E80F9AEF21F6940"
           },
-          "editorMode": "builder",
-          "expr": "{job=\"loki.source.kubernetes.wiki_js_app\"} |= ``",
+          "editorMode": "code",
+          "expr": "{job=\"loki.source.kubernetes.wiki_js_app\"}",
           "queryType": "range",
           "refId": "A"
         }
@@ -67,21 +62,20 @@
       },
       "description": "Logs from the Wiki.Js database application pod",
       "gridPos": {
-        "h": 10,
+        "h": 12,
         "w": 24,
         "x": 0,
-        "y": 10
+        "y": 12
       },
-      "id": 2,
       "options": {
         "dedupStrategy": "none",
         "enableLogDetails": true,
-        "prettifyLogMessage": false,
+        "prettifyLogMessage": true,
         "showCommonLabels": false,
-        "showLabels": false,
-        "showTime": false,
+        "showLabels": true,
+        "showTime": true,
         "sortOrder": "Descending",
-        "wrapLogMessage": false
+        "wrapLogMessage": true
       },
       "targets": [
         {
@@ -89,8 +83,8 @@
             "type": "loki",
             "uid": "P8E80F9AEF21F6940"
           },
-          "editorMode": "builder",
-          "expr": "{job=\"loki.source.kubernetes.wiki_js_db\"} |= ``",
+          "editorMode": "code",
+          "expr": "{job=\"loki.source.kubernetes.wiki_js_db\"}",
           "queryType": "range",
           "refId": "A"
         }
@@ -99,19 +93,16 @@
       "type": "logs"
     }
   ],
-  "refresh": "15s",
-  "schemaVersion": 38,
-  "tags": ["wiki-js", "logs"],
-  "templating": {
-    "list": []
-  },
+  "refresh": "10s",
+  "schemaVersion": 39,
+  "tags": [
+    "wiki-js",
+    "logs"
+  ],
   "time": {
     "from": "now-6h",
     "to": "now"
   },
-  "timepicker": {},
-  "timezone": "",
   "title": "Wiki.JS",
-  "version": 1,
-  "weekStart": ""
+  "version": 1
 }

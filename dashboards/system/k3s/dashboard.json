@@ -23,11 +23,8 @@
   },
   "description": "Monitors K3s cluster using Kube-Prometheus. Shows overall cluster CPU / Memory / Filesystem usage as well as individual pod, containers, systemd services statistics. Uses cAdvisor metrics only.\n\nOrigin from  dashboard: 8721(K8s RKE cluster monitoring) and will be compatible with k3s",
   "editable": true,
-  "fiscalYearStartMonth": 0,
   "gnetId": 15282,
   "graphTooltip": 2,
-  "links": [],
-  "liveNow": false,
   "panels": [
     {
       "collapsed": false,
@@ -112,7 +109,9 @@
         "minVizWidth": 75,
         "orientation": "horizontal",
         "reduceOptions": {
-          "calcs": ["lastNotNull"],
+          "calcs": [
+            "lastNotNull"
+          ],
           "fields": "",
           "values": false
         },
@@ -201,7 +200,9 @@
         "minVizWidth": 75,
         "orientation": "horizontal",
         "reduceOptions": {
-          "calcs": ["lastNotNull"],
+          "calcs": [
+            "lastNotNull"
+          ],
           "fields": "",
           "values": false
         },
@@ -291,7 +292,9 @@
         "minVizWidth": 75,
         "orientation": "auto",
         "reduceOptions": {
-          "calcs": ["lastNotNull"],
+          "calcs": [
+            "lastNotNull"
+          ],
           "fields": "",
           "values": false
         },
@@ -377,7 +380,9 @@
         "orientation": "horizontal",
         "percentChangeColorMode": "standard",
         "reduceOptions": {
-          "calcs": ["lastNotNull"],
+          "calcs": [
+            "lastNotNull"
+          ],
           "fields": "",
           "values": false
         },
@@ -462,7 +467,9 @@
         "orientation": "auto",
         "percentChangeColorMode": "standard",
         "reduceOptions": {
-          "calcs": ["lastNotNull"],
+          "calcs": [
+            "lastNotNull"
+          ],
           "fields": "",
           "values": false
         },
@@ -546,7 +553,9 @@
         "orientation": "horizontal",
         "percentChangeColorMode": "standard",
         "reduceOptions": {
-          "calcs": ["lastNotNull"],
+          "calcs": [
+            "lastNotNull"
+          ],
           "fields": "",
           "values": false
         },
@@ -629,7 +638,9 @@
         "orientation": "horizontal",
         "percentChangeColorMode": "standard",
         "reduceOptions": {
-          "calcs": ["lastNotNull"],
+          "calcs": [
+            "lastNotNull"
+          ],
           "fields": "",
           "values": false
         },
@@ -714,7 +725,9 @@
         "orientation": "horizontal",
         "percentChangeColorMode": "standard",
         "reduceOptions": {
-          "calcs": ["lastNotNull"],
+          "calcs": [
+            "lastNotNull"
+          ],
           "fields": "",
           "values": false
         },
@@ -795,7 +808,9 @@
         "orientation": "horizontal",
         "percentChangeColorMode": "standard",
         "reduceOptions": {
-          "calcs": ["lastNotNull"],
+          "calcs": [
+            "lastNotNull"
+          ],
           "fields": "",
           "values": false
         },
@@ -920,7 +935,10 @@
       "id": 32,
       "options": {
         "legend": {
-          "calcs": ["mean", "lastNotNull"],
+          "calcs": [
+            "mean",
+            "lastNotNull"
+          ],
           "displayMode": "list",
           "placement": "bottom",
           "showLegend": false
@@ -1033,7 +1051,10 @@
       "id": 45,
       "options": {
         "legend": {
-          "calcs": ["mean", "lastNotNull"],
+          "calcs": [
+            "mean",
+            "lastNotNull"
+          ],
           "displayMode": "list",
           "placement": "bottom",
           "showLegend": false
@@ -1133,7 +1154,10 @@
       "id": 46,
       "options": {
         "legend": {
-          "calcs": ["mean", "lastNotNull"],
+          "calcs": [
+            "mean",
+            "lastNotNull"
+          ],
           "displayMode": "list",
           "placement": "bottom",
           "showLegend": false
@@ -1260,7 +1284,10 @@
       "id": 17,
       "options": {
         "legend": {
-          "calcs": ["mean", "lastNotNull"],
+          "calcs": [
+            "mean",
+            "lastNotNull"
+          ],
           "displayMode": "table",
           "placement": "right",
           "showLegend": true
@@ -1387,7 +1414,10 @@
       "id": 24,
       "options": {
         "legend": {
-          "calcs": ["mean", "lastNotNull"],
+          "calcs": [
+            "mean",
+            "lastNotNull"
+          ],
           "displayMode": "table",
           "placement": "right",
           "showLegend": true
@@ -1543,7 +1573,10 @@
       "id": 20,
       "options": {
         "legend": {
-          "calcs": ["mean", "lastNotNull"],
+          "calcs": [
+            "mean",
+            "lastNotNull"
+          ],
           "displayMode": "table",
           "placement": "bottom",
           "showLegend": true
@@ -1669,7 +1702,10 @@
       "id": 25,
       "options": {
         "legend": {
-          "calcs": ["mean", "lastNotNull"],
+          "calcs": [
+            "mean",
+            "lastNotNull"
+          ],
           "displayMode": "table",
           "placement": "right",
           "showLegend": true
@@ -1795,7 +1831,10 @@
       "id": 27,
       "options": {
         "legend": {
-          "calcs": ["mean", "lastNotNull"],
+          "calcs": [
+            "mean",
+            "lastNotNull"
+          ],
           "displayMode": "table",
           "placement": "right",
           "showLegend": true
@@ -1948,7 +1987,10 @@
       "id": 28,
       "options": {
         "legend": {
-          "calcs": ["mean", "lastNotNull"],
+          "calcs": [
+            "mean",
+            "lastNotNull"
+          ],
           "displayMode": "table",
           "placement": "bottom",
           "showLegend": true
@@ -2073,7 +2115,10 @@
       "id": 16,
       "options": {
         "legend": {
-          "calcs": ["mean", "lastNotNull"],
+          "calcs": [
+            "mean",
+            "lastNotNull"
+          ],
           "displayMode": "table",
           "placement": "right",
           "showLegend": true
@@ -2214,7 +2259,10 @@
       "id": 30,
       "options": {
         "legend": {
-          "calcs": ["mean", "lastNotNull"],
+          "calcs": [
+            "mean",
+            "lastNotNull"
+          ],
           "displayMode": "table",
           "placement": "right",
           "showLegend": true
@@ -2323,7 +2371,11 @@
   ],
   "refresh": "1m",
   "schemaVersion": 39,
-  "tags": ["kubernetes", "prometheus", "k3s"],
+  "tags": [
+    "kubernetes",
+    "prometheus",
+    "k3s"
+  ],
   "templating": {
     "list": [
       {
@@ -2360,8 +2412,12 @@
         "allValue": ".*",
         "current": {
           "selected": true,
-          "text": ["All"],
-          "value": ["$__all"]
+          "text": [
+            "All"
+          ],
+          "value": [
+            "$__all"
+          ]
         },
         "datasource": {
           "type": "prometheus",
@@ -2405,11 +2461,18 @@
       "2h",
       "1d"
     ],
-    "time_options": ["5m", "15m", "1h", "6h", "12h", "24h", "2d", "7d", "30d"]
+    "time_options": [
+      "5m",
+      "15m",
+      "1h",
+      "6h",
+      "12h",
+      "24h",
+      "2d",
+      "7d",
+      "30d"
+    ]
   },
-  "timezone": "browser",
   "title": "K3S Cluster Monitoring",
-  "uid": "k3s-cluster-monitoring",
-  "version": 1,
-  "weekStart": ""
+  "version": 1
 }

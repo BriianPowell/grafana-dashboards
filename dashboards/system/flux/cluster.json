@@ -21,18 +21,16 @@
         "target": {
           "limit": 100,
           "matchAny": false,
-          "tags": ["flux"],
+          "tags": [
+            "flux"
+          ],
           "type": "tags"
         }
       }
     ]
   },
   "editable": true,
-  "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 1,
-  "links": [],
-  "liveNow": false,
   "panels": [
     {
       "datasource": {
@@ -75,7 +73,9 @@
         "justifyMode": "auto",
         "orientation": "auto",
         "reduceOptions": {
-          "calcs": ["last"],
+          "calcs": [
+            "last"
+          ],
           "fields": "",
           "values": false
         },
@@ -139,7 +139,9 @@
         "justifyMode": "auto",
         "orientation": "auto",
         "reduceOptions": {
-          "calcs": ["last"],
+          "calcs": [
+            "last"
+          ],
           "fields": "",
           "values": false
         },
@@ -207,7 +209,9 @@
         "justifyMode": "auto",
         "orientation": "auto",
         "reduceOptions": {
-          "calcs": ["last"],
+          "calcs": [
+            "last"
+          ],
           "fields": "",
           "values": false
         },
@@ -271,7 +275,9 @@
         "justifyMode": "auto",
         "orientation": "auto",
         "reduceOptions": {
-          "calcs": ["last"],
+          "calcs": [
+            "last"
+          ],
           "fields": "",
           "values": false
         },
@@ -338,7 +344,9 @@
         "minVizWidth": 0,
         "orientation": "horizontal",
         "reduceOptions": {
-          "calcs": ["mean"],
+          "calcs": [
+            "mean"
+          ],
           "fields": "",
           "values": false
         },
@@ -399,7 +407,9 @@
         "minVizWidth": 0,
         "orientation": "horizontal",
         "reduceOptions": {
-          "calcs": ["mean"],
+          "calcs": [
+            "mean"
+          ],
           "fields": "",
           "values": false
         },
@@ -507,7 +517,9 @@
         "footer": {
           "countRows": false,
           "fields": "",
-          "reducer": ["sum"],
+          "reducer": [
+            "sum"
+          ],
           "show": false
         },
         "showHeader": true,
@@ -703,7 +715,9 @@
         "footer": {
           "countRows": false,
           "fields": "",
-          "reducer": ["sum"],
+          "reducer": [
+            "sum"
+          ],
           "show": false
         },
         "showHeader": true,
@@ -864,7 +878,9 @@
         "footer": {
           "countRows": false,
           "fields": "",
-          "reducer": ["sum"],
+          "reducer": [
+            "sum"
+          ],
           "show": false
         },
         "showHeader": true,
@@ -1082,7 +1098,9 @@
       "id": 27,
       "options": {
         "legend": {
-          "calcs": ["mean"],
+          "calcs": [
+            "mean"
+          ],
           "displayMode": "table",
           "placement": "right",
           "showLegend": true
@@ -1212,7 +1230,9 @@
       "id": 35,
       "options": {
         "legend": {
-          "calcs": ["mean"],
+          "calcs": [
+            "mean"
+          ],
           "displayMode": "table",
           "placement": "right",
           "showLegend": true
@@ -1240,15 +1260,21 @@
   "refresh": "30s",
   "schemaVersion": 38,
   "style": "light",
-  "tags": ["flux"],
+  "tags": [
+    "flux"
+  ],
   "templating": {
     "list": [
       {
         "allValue": "",
         "current": {
           "selected": true,
-          "text": ["All"],
-          "value": ["$__all"]
+          "text": [
+            "All"
+          ],
+          "value": [
+            "$__all"
+          ]
         },
         "datasource": {
           "type": "prometheus",
@@ -1277,8 +1303,12 @@
       {
         "current": {
           "selected": true,
-          "text": ["All"],
-          "value": ["$__all"]
+          "text": [
+            "All"
+          ],
+          "value": [
+            "$__all"
+          ]
         },
         "datasource": {
           "type": "prometheus",
@@ -1341,9 +1371,6 @@
       "1d"
     ]
   },
-  "timezone": "",
   "title": "Flux Cluster Stats",
-  "uid": "flux-cluster",
-  "version": 1,
-  "weekStart": ""
+  "version": 1
 }

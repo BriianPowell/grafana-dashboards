@@ -1,4 +1,13 @@
 {
+  "title": "Seerr",
+  "tags": [
+    "logs",
+    "seerr"
+  ],
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
   "annotations": {
     "list": [
       {
@@ -15,35 +24,28 @@
       }
     ]
   },
-  "editable": true,
-  "fiscalYearStartMonth": 0,
-  "graphTooltip": 0,
-  "id": 111,
-  "links": [],
-  "liveNow": false,
   "panels": [
     {
       "datasource": {
         "type": "loki",
         "uid": "P8E80F9AEF21F6940"
       },
-      "description": "Logs from the Overseerr application pod",
+      "description": "Loki stream `loki.source.kubernetes.seerr`",
       "gridPos": {
         "h": 24,
         "w": 24,
         "x": 0,
         "y": 0
       },
-      "id": 1,
       "options": {
         "dedupStrategy": "none",
         "enableLogDetails": true,
-        "prettifyLogMessage": false,
+        "prettifyLogMessage": true,
         "showCommonLabels": false,
-        "showLabels": false,
-        "showTime": false,
+        "showLabels": true,
+        "showTime": true,
         "sortOrder": "Descending",
-        "wrapLogMessage": false
+        "wrapLogMessage": true
       },
       "targets": [
         {
@@ -51,30 +53,18 @@
             "type": "loki",
             "uid": "P8E80F9AEF21F6940"
           },
-          "editorMode": "builder",
-          "expr": "{job=\"loki.source.kubernetes.overseerr\"} |= ``",
+          "editorMode": "code",
+          "expr": "{job=\"loki.source.kubernetes.seerr\"}",
           "queryType": "range",
           "refId": "A"
         }
       ],
-      "title": "Overseerr Container Logs",
+      "title": "Application",
       "type": "logs"
     }
   ],
-  "refresh": "15s",
   "schemaVersion": 39,
-  "tags": ["logs", "media", "overseerr"],
-  "templating": {
-    "list": []
-  },
-  "time": {
-    "from": "now-6h",
-    "to": "now"
-  },
-  "timepicker": {},
-  "timezone": "",
-  "title": "Overseerr",
-  "uid": "overseerr",
-  "version": 2,
-  "weekStart": ""
+  "graphTooltip": 0,
+  "refresh": "10s",
+  "editable": true
 }

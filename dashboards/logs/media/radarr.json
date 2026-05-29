@@ -16,11 +16,7 @@
     ]
   },
   "editable": true,
-  "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 113,
-  "links": [],
-  "liveNow": false,
   "panels": [
     {
       "datasource": {
@@ -34,16 +30,15 @@
         "x": 0,
         "y": 0
       },
-      "id": 1,
       "options": {
         "dedupStrategy": "none",
         "enableLogDetails": true,
-        "prettifyLogMessage": false,
+        "prettifyLogMessage": true,
         "showCommonLabels": false,
-        "showLabels": false,
-        "showTime": false,
+        "showLabels": true,
+        "showTime": true,
         "sortOrder": "Descending",
-        "wrapLogMessage": false
+        "wrapLogMessage": true
       },
       "targets": [
         {
@@ -51,8 +46,8 @@
             "type": "loki",
             "uid": "P8E80F9AEF21F6940"
           },
-          "editorMode": "builder",
-          "expr": "{job=\"loki.source.kubernetes.radarr\"} |= ``",
+          "editorMode": "code",
+          "expr": "{job=\"loki.source.kubernetes.radarr\"}",
           "queryType": "range",
           "refId": "A"
         }
@@ -61,20 +56,17 @@
       "type": "logs"
     }
   ],
-  "refresh": "15s",
+  "refresh": "10s",
   "schemaVersion": 39,
-  "tags": ["logs", "media", "radarr"],
-  "templating": {
-    "list": []
-  },
+  "tags": [
+    "logs",
+    "media",
+    "radarr"
+  ],
   "time": {
     "from": "now-6h",
     "to": "now"
   },
-  "timepicker": {},
-  "timezone": "",
   "title": "Radarr",
-  "uid": "radarr",
-  "version": 5,
-  "weekStart": ""
+  "version": 5
 }
