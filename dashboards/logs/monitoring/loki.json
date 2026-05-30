@@ -47,7 +47,7 @@
             "uid": "P8E80F9AEF21F6940"
           },
           "editorMode": "code",
-          "expr": "{job=\"loki.source.kubernetes.loki_app\"}",
+          "expr": "{namespace=\"monitoring\", pod=~\"loki-.*\", container=\"loki\"}",
           "queryType": "range",
           "refId": "A"
         }
@@ -84,7 +84,7 @@
             "uid": "P8E80F9AEF21F6940"
           },
           "editorMode": "code",
-          "expr": "{job=\"loki.source.kubernetes.loki_canary\"}",
+          "expr": "{namespace=\"monitoring\", pod=~\"loki-canary.*\"}",
           "queryType": "range",
           "refId": "A"
         }
@@ -121,7 +121,7 @@
             "uid": "P8E80F9AEF21F6940"
           },
           "editorMode": "code",
-          "expr": "{job=\"loki.source.kubernetes.loki_gateway\"}",
+          "expr": "{namespace=\"monitoring\", pod=~\"loki-gateway.*\"}",
           "queryType": "range",
           "refId": "A"
         }
@@ -158,7 +158,7 @@
             "uid": "P8E80F9AEF21F6940"
           },
           "editorMode": "code",
-          "expr": "{job=\"loki.source.kubernetes.loki_chunks_cache\"}",
+          "expr": "{namespace=\"monitoring\", pod=~\"loki-chunks-cache.*\"}",
           "queryType": "range",
           "refId": "A"
         }
@@ -195,7 +195,7 @@
             "uid": "P8E80F9AEF21F6940"
           },
           "editorMode": "code",
-          "expr": "{job=\"loki.source.kubernetes.loki_results_cache\"}",
+          "expr": "{namespace=\"monitoring\", pod=~\"loki-results-cache.*\"}",
           "queryType": "range",
           "refId": "A"
         }

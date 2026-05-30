@@ -47,7 +47,7 @@
             "uid": "P8E80F9AEF21F6940"
           },
           "editorMode": "code",
-          "expr": "{job=\"loki.source.kubernetes.nextcloud_app\"}",
+          "expr": "{namespace=\"nextcloud\", pod=~\"nextcloud.*\", container!~\"redis|postgres\"}",
           "queryType": "range",
           "refId": "A"
         }
@@ -84,7 +84,7 @@
             "uid": "P8E80F9AEF21F6940"
           },
           "editorMode": "code",
-          "expr": "{job=\"loki.source.kubernetes.nextcloud_db\"}",
+          "expr": "{namespace=\"nextcloud\", pod=~\".*nextcloud.*pg.*|.*postgres.*\"}",
           "queryType": "range",
           "refId": "A"
         }
@@ -121,7 +121,7 @@
             "uid": "P8E80F9AEF21F6940"
           },
           "editorMode": "code",
-          "expr": "{job=\"loki.source.kubernetes.nextcloud_redis\"}",
+          "expr": "{namespace=\"nextcloud\", pod=~\".*redis.*\"}",
           "queryType": "range",
           "refId": "A"
         }
@@ -158,7 +158,7 @@
             "uid": "P8E80F9AEF21F6940"
           },
           "editorMode": "code",
-          "expr": "{job=\"loki.source.kubernetes.nextcloud_cron\"}",
+          "expr": "{namespace=\"nextcloud\", pod=~\".*cron.*\"}",
           "queryType": "range",
           "refId": "A"
         }

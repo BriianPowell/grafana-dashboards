@@ -47,7 +47,7 @@
             "uid": "P8E80F9AEF21F6940"
           },
           "editorMode": "code",
-          "expr": "{job=\"loki.source.kubernetes.cert_manager_controller\"}",
+          "expr": "{namespace=\"cert-manager\", pod=~\"cert-manager-.*\", pod!~\"cert-manager-cainjector.*|cert-manager-webhook.*\"}",
           "queryType": "range",
           "refId": "A"
         }
@@ -84,7 +84,7 @@
             "uid": "P8E80F9AEF21F6940"
           },
           "editorMode": "code",
-          "expr": "{job=\"loki.source.kubernetes.cert_manager_webhook\"}",
+          "expr": "{namespace=\"cert-manager\", pod=~\"cert-manager-webhook.*\"}",
           "queryType": "range",
           "refId": "A"
         }
@@ -121,7 +121,7 @@
             "uid": "P8E80F9AEF21F6940"
           },
           "editorMode": "code",
-          "expr": "{job=\"loki.source.kubernetes.cert_manager_cainjector\"}",
+          "expr": "{namespace=\"cert-manager\", pod=~\"cert-manager-cainjector.*\"}",
           "queryType": "range",
           "refId": "A"
         }

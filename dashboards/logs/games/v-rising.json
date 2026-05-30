@@ -47,7 +47,7 @@
             "uid": "P8E80F9AEF21F6940"
           },
           "editorMode": "code",
-          "expr": "{job=\"loki.source.kubernetes.v_rising_server\"}",
+          "expr": "{namespace=\"v-rising\", pod=~\"v-rising.*\"}",
           "queryType": "range",
           "refId": "A"
         }

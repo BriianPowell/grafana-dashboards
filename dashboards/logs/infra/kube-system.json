@@ -23,9 +23,9 @@
         "type": "loki",
         "uid": "P8E80F9AEF21F6940"
       },
-      "description": "Logs from the Local Path Provisioner application pod",
+      "description": "CoreDNS (Alloy: kube-system / k8s-app=kube-dns). Local-path-provisioner logs are not collected.",
       "gridPos": {
-        "h": 12,
+        "h": 24,
         "w": 24,
         "x": 0,
         "y": 0
@@ -47,44 +47,7 @@
             "uid": "P8E80F9AEF21F6940"
           },
           "editorMode": "code",
-          "expr": "{job=\"loki.source.kubernetes.local_path_provisioner\"}",
-          "queryType": "range",
-          "refId": "A"
-        }
-      ],
-      "title": "Local Path Provisioner Container Logs",
-      "type": "logs"
-    },
-    {
-      "datasource": {
-        "type": "loki",
-        "uid": "P8E80F9AEF21F6940"
-      },
-      "description": "Logs from the CoreDNS application pod",
-      "gridPos": {
-        "h": 12,
-        "w": 24,
-        "x": 0,
-        "y": 12
-      },
-      "options": {
-        "dedupStrategy": "none",
-        "enableLogDetails": true,
-        "prettifyLogMessage": true,
-        "showCommonLabels": false,
-        "showLabels": true,
-        "showTime": true,
-        "sortOrder": "Descending",
-        "wrapLogMessage": true
-      },
-      "targets": [
-        {
-          "datasource": {
-            "type": "loki",
-            "uid": "P8E80F9AEF21F6940"
-          },
-          "editorMode": "code",
-          "expr": "{job=\"loki.source.kubernetes.core_dns\"}",
+          "expr": "{namespace=\"kube-system\", pod=~\"coredns.*\"}",
           "queryType": "range",
           "refId": "A"
         }
@@ -103,6 +66,8 @@
     "from": "now-6h",
     "to": "now"
   },
-  "title": "Kube System",
+  "timezone": "browser",
+  "title": "Kube System Logs",
+  "uid": "kube-system-logs",
   "version": 1
 }
