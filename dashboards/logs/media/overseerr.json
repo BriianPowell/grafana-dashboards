@@ -30,7 +30,7 @@
         "type": "loki",
         "uid": "P8E80F9AEF21F6940"
       },
-      "description": "Loki stream `loki.source.kubernetes.seerr`",
+      "description": "Loki selector `{namespace=\"media\", pod=~\"seerr.*\"}`",
       "gridPos": {
         "h": 24,
         "w": 24,

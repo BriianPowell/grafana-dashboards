@@ -31,7 +31,7 @@
         "type": "loki",
         "uid": "P8E80F9AEF21F6940"
       },
-      "description": "Loki stream `loki.source.kubernetes.sonarr_tv`",
+      "description": "Loki selector `{namespace=\"media\", pod=~\"sonarr-tv.*\"}`",
       "gridPos": {
         "h": 12,
         "w": 24,
@@ -68,7 +68,7 @@
         "type": "loki",
         "uid": "P8E80F9AEF21F6940"
       },
-      "description": "Loki stream `loki.source.kubernetes.sonarr_anime`",
+      "description": "Loki selector `{namespace=\"media\", pod=~\"sonarr-anime.*\"}`",
       "gridPos": {
         "h": 12,
         "w": 24,

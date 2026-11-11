@@ -10,27 +10,21 @@ deploy once merged; the only automated gate is the pre-commit workflow.
 Run these and fix failures before reporting a task done. Report which ones you ran.
 
 ```bash
-pre-commit run --all-files   # merge markers, private keys, JSON validity, file size, ripsecrets
-grep -rlE 'job=\\?"loki\.source' dashboards   # legacy selectors; must print nothing
+pre-commit run --all-files   # merge markers, private keys, JSON validity, file size, ripsecrets, dashboard conventions
 ```
 
 - No tests. `.github/workflows/pre-commit.yml` runs the same pre-commit hooks on pull requests
   and pushes to `main`; there is nothing else in CI.
-- Keep dashboards formatted as Python's `json.dumps(indent=2)` plus a trailing newline; all
-  dashboards currently match, and the normaliser scripts write that format.
-- After running a normaliser, run `git diff --stat` and confirm only the dashboards you meant
-  to change moved.
+- `scripts/check-dashboards.py` (the `check-dashboards` hook) fails on: formatting other than
+  Python's `json.dumps(indent=2)` plus a trailing newline, a top-level `id` or `uid`, legacy
+  `job="loki.source..."` selectors, and any Loki datasource uid other than the pinned one. It
+  reports and never rewrites; fix the file by hand (it prints a one-liner to reformat).
 - If you add, rename or move a provisioned dashboard, check that the URL list in the
   k3s-collective HelmRelease still matches the files (a sibling checkout:
   `grep -c 'grafana-dashboards/main' ../k3s-collective/apps/monitoring/grafana/helm-release.yaml`
   counts the entries).
 
 ## Commands
-
-```bash
-python3 scripts/normalize-log-dashboards.py     # rewrites dashboards/logs/**: layout, metadata, Loki datasource
-python3 scripts/normalize-system-dashboards.py  # strips export metadata from dashboards/system/**
-```
 
 - The pre-commit hook is installed by the nix-config `tools` devShell (`.envrc`).
 - `package.json` (husky, lint-staged, eslint, prettier) is unused: no Node in the devShell, husky
@@ -42,17 +36,17 @@ python3 scripts/normalize-system-dashboards.py  # strips export metadata from da
 - `dashboards/logs/<group>/`: Loki log dashboards. Only some are provisioned; the README lists
   which (`games/`, `monitoring/` and a few infra ones are not).
 - `dashboards/system/`: Prometheus dashboards, mostly upstream exports.
-- `scripts/`: normalisers that rewrite dashboards in place. Read them before running.
+- `scripts/check-dashboards.py`: the convention checker run by pre-commit.
 
 ## Conventions
 
 - LogQL selectors use the Kubernetes labels Alloy sets (`namespace`, `pod`, `container`), e.g.
   `{namespace="media", pod=~"radarr.*"}`. `job="loki.source.kubernetes.*"` selectors no longer match.
-- `normalize-log-dashboards.py` still writes legacy `job=` selectors for overseerr, sonarr and
-  bazarr (its `SPECIAL` table). Running it as is breaks those three dashboards; fix the table first.
+- A dashboard exported from the Grafana UI needs its top-level `id` and `uid` removed and its
+  Loki datasources pointed at the pinned uid before it passes the hook.
 - Datasource uids: Loki is `P8E80F9AEF21F6940` (pinned in the HelmRelease). Prometheus panels use
   `PBFA97CFB590B2093`, which the HelmRelease does not pin (unverified against the live Grafana).
-- Dashboards have no `uid` on purpose (the scripts strip it); Grafana assigns one.
+- Dashboards have no `uid` on purpose (the hook enforces it); Grafana assigns one.
 - Never commit `node_modules/`, `.envrc` or `.direnv/` (a pre-commit hook blocks them).
 - Never read, print or commit secrets (`.env`, keys, tokens).
 - Do not commit or push unless asked.

@@ -68,6 +68,5 @@
   },
   "timezone": "browser",
   "title": "Kube System Logs",
-  "uid": "kube-system-logs",
   "version": 1
 }

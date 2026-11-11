@@ -1,4 +1,4 @@
-# Pre-commit hooks for grafana-dashboards (exported Grafana dashboard JSON plus normalising scripts).
+# Pre-commit hooks for grafana-dashboards (exported Grafana dashboard JSON).
 # Install once per clone:  pre-commit install
 # Run on everything:       pre-commit run --all-files
 # https://pre-commit.com
@@ -24,6 +24,12 @@ repos:
 
   - repo: local
     hooks:
+      - id: check-dashboards
+        name: check dashboard conventions (format, uid, Loki selectors and datasource)
+        language: system
+        entry: python3 scripts/check-dashboards.py
+        files: ^dashboards/.*\.json$
+
       - id: forbid-local-only-files
         name: forbid local-only files (node_modules, envrc)
         language: fail
