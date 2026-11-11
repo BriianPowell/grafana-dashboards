@@ -17,7 +17,8 @@ pre-commit run --all-files   # merge markers, private keys, JSON validity, file 
   and pushes to `main`; there is nothing else in CI.
 - `scripts/check-dashboards.py` (the `check-dashboards` hook) fails on: formatting other than
   Python's `json.dumps(indent=2)` plus a trailing newline, a top-level `id` or `uid`, legacy
-  `job="loki.source..."` selectors, and any Loki datasource uid other than the pinned one. It
+  `job="loki.source..."` selectors, any Loki datasource uid other than the pinned one, and any
+  Prometheus uid other than the pinned one or a Prometheus datasource variable the dashboard defines. It
   reports and never rewrites; fix the file by hand (it prints a one-liner to reformat).
 - If you add, rename or move a provisioned dashboard, check that the URL list in the
   k3s-collective HelmRelease still matches the files (a sibling checkout:
@@ -43,8 +44,9 @@ pre-commit run --all-files   # merge markers, private keys, JSON validity, file 
   `{namespace="media", pod=~"radarr.*"}`. `job="loki.source.kubernetes.*"` selectors no longer match.
 - A dashboard exported from the Grafana UI needs its top-level `id` and `uid` removed and its
   Loki datasources pointed at the pinned uid before it passes the hook.
-- Datasource uids: Loki is `P8E80F9AEF21F6940` (pinned in the HelmRelease). Prometheus panels use
-  `PBFA97CFB590B2093`, which the HelmRelease does not pin (unverified against the live Grafana).
+- Datasource uids, both pinned in the HelmRelease and matching the live Grafana: Loki is
+  `P8E80F9AEF21F6940`, Prometheus is `PBFA97CFB590B2093`. Upstream exports may use a
+  `${DS_PROMETHEUS}` datasource variable instead, which is fine if the dashboard defines it.
 - Dashboards have no `uid` on purpose (the hook enforces it); Grafana assigns one.
 - Never commit `node_modules/`, `.envrc` or `.direnv/` (a pre-commit hook blocks them).
 - Never read, print or commit secrets (`.env`, keys, tokens).

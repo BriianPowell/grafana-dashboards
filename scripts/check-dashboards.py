@@ -9,8 +9,10 @@ import sys
 from pathlib import Path
 
 LOKI_UID = "P8E80F9AEF21F6940"
+PROMETHEUS_UID = "PBFA97CFB590B2093"
 EXPORT_KEYS = ("id", "uid")
 LEGACY_SELECTOR = re.compile(r'job=\\?"loki\.source')
+VARIABLE_REF = re.compile(r"^\$\{?(\w+)\}?$")
 
 
 def datasources(node):
@@ -43,6 +45,19 @@ def check(path: Path) -> list[str]:
     bad_loki = {ds.get("uid") for ds in datasources(data) if ds.get("type") == "loki"} - {LOKI_UID}
     for uid in sorted(map(str, bad_loki)):
         problems.append(f"Loki datasource uid {uid!r}; expected {LOKI_UID!r}")
+
+    ds_vars = {
+        v.get("name")
+        for v in data.get("templating", {}).get("list", [])
+        if v.get("type") == "datasource" and v.get("query") == "prometheus"
+    }
+    for uid in sorted({str(ds.get("uid")) for ds in datasources(data) if ds.get("type") == "prometheus"}):
+        ref = VARIABLE_REF.match(uid)
+        if uid != PROMETHEUS_UID and not (ref and ref.group(1) in ds_vars):
+            problems.append(
+                f"Prometheus datasource uid {uid!r}; expected {PROMETHEUS_UID!r} "
+                "or a Prometheus datasource variable defined in this dashboard"
+            )
     return problems
 
 

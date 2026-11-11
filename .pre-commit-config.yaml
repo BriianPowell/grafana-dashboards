@@ -22,7 +22,7 @@ repos:
   - repo: local
     hooks:
       - id: check-dashboards
-        name: check dashboard conventions (format, uid, Loki selectors and datasource)
+        name: check dashboard conventions (format, uid, Loki selectors, datasource uids)
         language: system
         entry: python3 scripts/check-dashboards.py
         files: ^dashboards/.*\.json$
