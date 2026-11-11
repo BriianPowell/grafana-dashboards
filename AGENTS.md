@@ -27,9 +27,8 @@ pre-commit run --all-files   # merge markers, private keys, JSON validity, file 
 ## Commands
 
 - The pre-commit hook is installed by the nix-config `tools` devShell (`.envrc`).
-- `package.json` (husky, lint-staged, eslint, prettier) is unused: no Node in the devShell, husky
-  not wired up (`core.hooksPath` unset), and `lint:fix` has a misplaced quote. Do not run
-  `prettier:write`; it would reformat every file away from the `json.dumps` style.
+- There is no Node tooling. Do not format dashboards with prettier or an editor's JSON
+  formatter; both move them away from the `json.dumps` style the hook requires.
 
 ## Layout
 
