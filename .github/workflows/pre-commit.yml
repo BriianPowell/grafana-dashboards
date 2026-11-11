@@ -1,0 +1,27 @@
+# Runs the repo's pre-commit hooks on every pull request and every push to main.
+# Grafana loads these dashboards from raw URLs on main, so a push is a deploy; this is the
+# only automated check in front of it. Enable branch protection on main and require the
+# "pre-commit" check so a failing change cannot be merged.
+# https://github.com/pre-commit/action
+name: pre-commit
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+# Read-only token; the job writes nothing.
+permissions:
+  contents: read
+
+jobs:
+  pre-commit:
+    name: pre-commit
+    runs-on: ubuntu-latest
+    steps:
+      # Actions are pinned by commit SHA (tag in the comment) so a moved tag cannot change
+      # what runs here.
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: pre-commit/action@2c7b3805fd2a0fd8c1884dcaebf91fc102a13ecd # v3.0.1

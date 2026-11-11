@@ -1,0 +1,32 @@
+# Pre-commit hooks for grafana-dashboards (exported Grafana dashboard JSON plus normalising scripts).
+# Install once per clone:  pre-commit install
+# Run on everything:       pre-commit run --all-files
+# https://pre-commit.com
+#
+# The JS side (prettier/eslint via husky + lint-staged in package.json) is separate and only
+# runs after `npm install`. These hooks need no node_modules.
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: check-merge-conflict
+      - id: detect-private-key
+      - id: check-json
+      - id: check-added-large-files
+        args: [--maxkb=1024]
+
+  # Dashboards often embed datasource URLs and sometimes tokens; scan them.
+  # https://github.com/sirwart/ripsecrets
+  - repo: https://github.com/sirwart/ripsecrets
+    rev: v0.1.11
+    hooks:
+      - id: ripsecrets
+
+  - repo: local
+    hooks:
+      - id: forbid-local-only-files
+        name: forbid local-only files (node_modules, envrc)
+        language: fail
+        entry: >-
+          This path is local-only (see .gitignore). Do not commit it.
+        files: (^node_modules/|^\.envrc$|^\.direnv/)
