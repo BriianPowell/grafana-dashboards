@@ -1,7 +1,7 @@
 # grafana-dashboards
 
 Grafana dashboard JSON for the k3s-collective homelab cluster: Loki log dashboards per app and
-Prometheus system dashboards (Flux, k3s, ntfy). Grafana loads them from raw GitHub URLs on `main`
+Prometheus system dashboards (Flux, k3s, ntfy, Traefik, CNPG, node and SMART, AdGuard, CrowdSec, exportarr). Grafana loads them from raw GitHub URLs on `main`
 listed in `k3s-collective/apps/monitoring/grafana/helm-release.yaml`, so a push to `main` is a
 deploy once merged; the only automated gate is the pre-commit workflow.
 

@@ -291,7 +291,7 @@
           "datasource": {
             "uid": "${DS_PROMETHEUS}"
           },
-          "expr": "sum(rate(rest_client_requests_total{namespace=\"$namespace\",pod=~\".*-controller-.*\"}[1m]))",
+          "expr": "sum(rate(rest_client_requests_total{namespace=\"$namespace\",pod=~\".*-controller-.*\"}[$__rate_interval]))",
           "interval": "",
           "legendFormat": "requests",
           "refId": "A"
@@ -386,7 +386,7 @@
           "datasource": {
             "uid": "${DS_PROMETHEUS}"
           },
-          "expr": "sum(rate(rest_client_requests_total{namespace=\"$namespace\"}[1m]))",
+          "expr": "sum(rate(rest_client_requests_total{namespace=\"$namespace\"}[$__rate_interval]))",
           "hide": false,
           "interval": "",
           "legendFormat": "total",
@@ -396,7 +396,7 @@
           "datasource": {
             "uid": "${DS_PROMETHEUS}"
           },
-          "expr": "sum(rate(rest_client_requests_total{namespace=\"$namespace\",code!~\"2..\"}[1m]))",
+          "expr": "sum(rate(rest_client_requests_total{namespace=\"$namespace\",code!~\"2..\"}[$__rate_interval]))",
           "hide": false,
           "interval": "",
           "legendFormat": "errors",
@@ -515,7 +515,7 @@
           "datasource": {
             "uid": "${DS_PROMETHEUS}"
           },
-          "expr": "rate(process_cpu_seconds_total{namespace=\"$namespace\",pod=~\".*-controller-.*\"}[1m])",
+          "expr": "rate(process_cpu_seconds_total{namespace=\"$namespace\",pod=~\".*-controller-.*\"}[$__rate_interval])",
           "interval": "",
           "legendFormat": "{{pod}}",
           "refId": "A"
@@ -825,7 +825,7 @@
           "datasource": {
             "uid": "${DS_PROMETHEUS}"
           },
-          "expr": "sum(increase(controller_runtime_reconcile_total{controller=\"kustomization\",result!=\"error\"}[1m])) by (controller)",
+          "expr": "60 * sum(rate(controller_runtime_reconcile_total{controller=\"kustomization\",result!=\"error\"}[$__rate_interval])) by (controller)",
           "format": "time_series",
           "interval": "",
           "legendFormat": "successful reconciliations ",
@@ -835,7 +835,7 @@
           "datasource": {
             "uid": "${DS_PROMETHEUS}"
           },
-          "expr": "sum(increase(controller_runtime_reconcile_total{controller=\"kustomization\",result=\"error\"}[1m])) by (controller)",
+          "expr": "60 * sum(rate(controller_runtime_reconcile_total{controller=\"kustomization\",result=\"error\"}[$__rate_interval])) by (controller)",
           "format": "time_series",
           "interval": "",
           "legendFormat": "failed reconciliations ",
@@ -955,7 +955,7 @@
           "datasource": {
             "uid": "${DS_PROMETHEUS}"
           },
-          "expr": "sum(increase(controller_runtime_reconcile_total{controller=\"gitrepository\",result!=\"error\"}[1m]))",
+          "expr": "60 * sum(rate(controller_runtime_reconcile_total{controller=\"gitrepository\",result!=\"error\"}[$__rate_interval]))",
           "format": "time_series",
           "interval": "",
           "legendFormat": "successful git pulls",
@@ -965,7 +965,7 @@
           "datasource": {
             "uid": "${DS_PROMETHEUS}"
           },
-          "expr": "sum(increase(controller_runtime_reconcile_total{controller=\"gitrepository\",result=\"error\"}[1m]))",
+          "expr": "60 * sum(rate(controller_runtime_reconcile_total{controller=\"gitrepository\",result=\"error\"}[$__rate_interval]))",
           "format": "time_series",
           "interval": "",
           "legendFormat": "failed git pulls",
@@ -1061,7 +1061,7 @@
           "datasource": {
             "uid": "${DS_PROMETHEUS}"
           },
-          "expr": "sum(increase(controller_runtime_reconcile_total{controller=\"ocirepository\",result!=\"error\"}[1m]))",
+          "expr": "60 * sum(rate(controller_runtime_reconcile_total{controller=\"ocirepository\",result!=\"error\"}[$__rate_interval]))",
           "format": "time_series",
           "interval": "",
           "legendFormat": "successful oci pulls",
@@ -1071,7 +1071,7 @@
           "datasource": {
             "uid": "${DS_PROMETHEUS}"
           },
-          "expr": "sum(increase(controller_runtime_reconcile_total{controller=\"ocirepository\",result=\"error\"}[1m]))",
+          "expr": "60 * sum(rate(controller_runtime_reconcile_total{controller=\"ocirepository\",result=\"error\"}[$__rate_interval]))",
           "format": "time_series",
           "interval": "",
           "legendFormat": "failed oci pulls",
@@ -1167,7 +1167,7 @@
           "datasource": {
             "uid": "${DS_PROMETHEUS}"
           },
-          "expr": "sum(increase(controller_runtime_reconcile_total{controller=\"helmrepository\",result!=\"error\"}[1m]))",
+          "expr": "60 * sum(rate(controller_runtime_reconcile_total{controller=\"helmrepository\",result!=\"error\"}[$__rate_interval]))",
           "format": "time_series",
           "interval": "",
           "legendFormat": "successful helm pulls",
@@ -1177,7 +1177,7 @@
           "datasource": {
             "uid": "${DS_PROMETHEUS}"
           },
-          "expr": "sum(increase(controller_runtime_reconcile_total{controller=\"helmrepository\",result=\"error\"}[1m]))",
+          "expr": "60 * sum(rate(controller_runtime_reconcile_total{controller=\"helmrepository\",result=\"error\"}[$__rate_interval]))",
           "format": "time_series",
           "interval": "",
           "legendFormat": "failed helm pulls",
@@ -1273,7 +1273,7 @@
           "datasource": {
             "uid": "${DS_PROMETHEUS}"
           },
-          "expr": "sum(increase(controller_runtime_reconcile_total{controller=\"bucket\",result!=\"error\"}[1m]))",
+          "expr": "60 * sum(rate(controller_runtime_reconcile_total{controller=\"bucket\",result!=\"error\"}[$__rate_interval]))",
           "format": "time_series",
           "interval": "",
           "legendFormat": "successful bucket pulls",
@@ -1283,7 +1283,7 @@
           "datasource": {
             "uid": "${DS_PROMETHEUS}"
           },
-          "expr": "sum(increase(controller_runtime_reconcile_total{controller=\"bucket\",result=\"error\"}[1m]))",
+          "expr": "60 * sum(rate(controller_runtime_reconcile_total{controller=\"bucket\",result=\"error\"}[$__rate_interval]))",
           "format": "time_series",
           "interval": "",
           "legendFormat": "failed bucket pulls",
@@ -1518,7 +1518,7 @@
           "datasource": {
             "uid": "${DS_PROMETHEUS}"
           },
-          "expr": "sum(increase(controller_runtime_reconcile_total{controller=\"helmrelease\",result!=\"error\"}[1m])) by (controller)",
+          "expr": "60 * sum(rate(controller_runtime_reconcile_total{controller=\"helmrelease\",result!=\"error\"}[$__rate_interval])) by (controller)",
           "format": "time_series",
           "interval": "",
           "legendFormat": "successful reconciliations ",
@@ -1528,7 +1528,7 @@
           "datasource": {
             "uid": "${DS_PROMETHEUS}"
           },
-          "expr": "sum(increase(controller_runtime_reconcile_total{controller=\"helmrelease\",result=\"error\"}[1m])) by (controller)",
+          "expr": "60 * sum(rate(controller_runtime_reconcile_total{controller=\"helmrelease\",result=\"error\"}[$__rate_interval])) by (controller)",
           "format": "time_series",
           "interval": "",
           "legendFormat": "failed reconciliations ",
@@ -1624,7 +1624,7 @@
           "datasource": {
             "uid": "${DS_PROMETHEUS}"
           },
-          "expr": "sum(increase(controller_runtime_reconcile_total{controller=\"helmchart\",result!=\"error\"}[1m])) by (controller)",
+          "expr": "60 * sum(rate(controller_runtime_reconcile_total{controller=\"helmchart\",result!=\"error\"}[$__rate_interval])) by (controller)",
           "format": "time_series",
           "interval": "",
           "legendFormat": "successful chart pulls",
@@ -1634,7 +1634,7 @@
           "datasource": {
             "uid": "${DS_PROMETHEUS}"
           },
-          "expr": "sum(increase(controller_runtime_reconcile_total{controller=\"helmchart\",result=\"error\"}[1m])) by (controller)",
+          "expr": "60 * sum(rate(controller_runtime_reconcile_total{controller=\"helmchart\",result=\"error\"}[$__rate_interval])) by (controller)",
           "format": "time_series",
           "interval": "",
           "legendFormat": "failed chart pulls",

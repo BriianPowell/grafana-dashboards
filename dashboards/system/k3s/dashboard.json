@@ -1434,43 +1434,13 @@
             "type": "prometheus",
             "uid": "PBFA97CFB590B2093"
           },
-          "expr": "sum (rate (container_cpu_usage_seconds_total{image!=\"\",name=~\"^k8s_.*\",container_name!=\"POD\",node=~\"^$Node$\",namespace=~\"$Namespace\"}[5m])) by (container_name, pod)",
+          "expr": "sum by (pod, container) (rate(container_cpu_usage_seconds_total{container!=\"\",node=~\"^$Node$\",namespace=~\"$Namespace\"}[5m]))",
           "format": "time_series",
-          "hide": false,
           "interval": "10s",
           "intervalFactor": 5,
-          "legendFormat": "pod: {{ pod }} | {{ container_name }}",
+          "legendFormat": "{{ pod }} | {{ container }}",
           "metric": "container_cpu",
           "refId": "A",
-          "step": 10
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
-          },
-          "expr": "sum (rate (container_cpu_usage_seconds_total{image!=\"\",name!~\"^k8s_.*\",node=~\"^$Node$\",namespace=~\"$Namespace\"}[5m])) by (node, name, image)",
-          "format": "time_series",
-          "hide": false,
-          "interval": "10s",
-          "intervalFactor": 5,
-          "legendFormat": "docker: {{ node }} | {{ image }} ({{ name }})",
-          "metric": "container_cpu",
-          "refId": "B",
-          "step": 10
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
-          },
-          "expr": "sum (rate (container_cpu_usage_seconds_total{rkt_container_name!=\"\",node=~\"^$Node$\",namespace=~\"$Namespace\"}[5m])) by (node, rkt_container_name)",
-          "format": "time_series",
-          "interval": "10s",
-          "intervalFactor": 5,
-          "legendFormat": "rkt: {{ node }} | {{ rkt_container_name }}",
-          "metric": "container_cpu",
-          "refId": "C",
           "step": 10
         }
       ],
@@ -1851,41 +1821,13 @@
             "type": "prometheus",
             "uid": "PBFA97CFB590B2093"
           },
-          "expr": "sum (container_memory_working_set_bytes{image!=\"\",name=~\"^k8s_.*\",container_name!=\"POD\",node=~\"^$Node$\",namespace=~\"$Namespace\"}) by (container_name, pod)",
+          "expr": "sum by (pod, container) (container_memory_working_set_bytes{container!=\"\",node=~\"^$Node$\",namespace=~\"$Namespace\"})",
           "format": "time_series",
           "interval": "10s",
           "intervalFactor": 5,
-          "legendFormat": "pod: {{ pod }} | {{ container_name }}",
+          "legendFormat": "{{ pod }} | {{ container }}",
           "metric": "container_memory_usage:sort_desc",
           "refId": "A",
-          "step": 10
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
-          },
-          "expr": "sum (container_memory_working_set_bytes{image!=\"\",name!~\"^k8s_.*\",node=~\"^$Node$\",namespace=~\"$Namespace\"}) by (node, name, image)",
-          "format": "time_series",
-          "interval": "10s",
-          "intervalFactor": 5,
-          "legendFormat": "docker: {{ node }} | {{ image }} ({{ name }})",
-          "metric": "container_memory_usage:sort_desc",
-          "refId": "B",
-          "step": 10
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
-          },
-          "expr": "sum (container_memory_working_set_bytes{rkt_container_name!=\"\",node=~\"^$Node$\",namespace=~\"$Namespace\"}) by (node, rkt_container_name)",
-          "format": "time_series",
-          "interval": "10s",
-          "intervalFactor": 5,
-          "legendFormat": "rkt: {{ node }} | {{ rkt_container_name }}",
-          "metric": "container_memory_usage:sort_desc",
-          "refId": "C",
           "step": 10
         }
       ],
@@ -2279,42 +2221,11 @@
             "type": "prometheus",
             "uid": "PBFA97CFB590B2093"
           },
-          "expr": "sum (rate (container_network_receive_bytes_total{image!=\"\",name=~\"^k8s_.*\",node=~\"^$Node$\",namespace=~\"$Namespace\"}[5m])) by (container_name, pod)",
+          "expr": "sum by (pod) (rate(container_network_receive_bytes_total{interface=\"eth0\",node=~\"^$Node$\",namespace=~\"$Namespace\"}[5m]))",
           "format": "time_series",
-          "hide": false,
           "interval": "10s",
           "intervalFactor": 5,
-          "legendFormat": "-> pod: {{ pod }} | {{ container_name }}",
-          "metric": "network",
-          "refId": "B",
-          "step": 10
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
-          },
-          "expr": "- sum (rate (container_network_transmit_bytes_total{image!=\"\",name=~\"^k8s_.*\",node=~\"^$Node$\",namespace=~\"$Namespace\"}[5m])) by (container_name, pod)",
-          "format": "time_series",
-          "hide": false,
-          "interval": "10s",
-          "intervalFactor": 5,
-          "legendFormat": "<- pod: {{ pod }} | {{ container_name }}",
-          "metric": "network",
-          "refId": "D",
-          "step": 10
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
-          },
-          "expr": "sum (rate (container_network_receive_bytes_total{image!=\"\",name!~\"^k8s_.*\",node=~\"^$Node$\",namespace=~\"$Namespace\"}[5m])) by (node, name, image)",
-          "format": "time_series",
-          "hide": false,
-          "interval": "10s",
-          "intervalFactor": 5,
-          "legendFormat": "-> docker: {{ node }} | {{ image }} ({{ name }})",
+          "legendFormat": "-> {{ pod }}",
           "metric": "network",
           "refId": "A",
           "step": 10
@@ -2324,44 +2235,13 @@
             "type": "prometheus",
             "uid": "PBFA97CFB590B2093"
           },
-          "expr": "- sum (rate (container_network_transmit_bytes_total{image!=\"\",name!~\"^k8s_.*\",node=~\"^$Node$\",namespace=~\"$Namespace\"}[5m])) by (node, name, image)",
+          "expr": "- sum by (pod) (rate(container_network_transmit_bytes_total{interface=\"eth0\",node=~\"^$Node$\",namespace=~\"$Namespace\"}[5m]))",
           "format": "time_series",
-          "hide": false,
           "interval": "10s",
           "intervalFactor": 5,
-          "legendFormat": "<- docker: {{ node }} | {{ image }} ({{ name }})",
+          "legendFormat": "<- {{ pod }}",
           "metric": "network",
-          "refId": "C",
-          "step": 10
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
-          },
-          "expr": "sum (rate (container_network_transmit_bytes_total{rkt_container_name!=\"\",node=~\"^$Node$\",namespace=~\"$Namespace\"}[5m])) by (node, rkt_container_name)",
-          "format": "time_series",
-          "hide": false,
-          "interval": "10s",
-          "intervalFactor": 5,
-          "legendFormat": "-> rkt: {{ node }} | {{ rkt_container_name }}",
-          "metric": "network",
-          "refId": "E",
-          "step": 10
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
-          },
-          "expr": "- sum (rate (container_network_transmit_bytes_total{rkt_container_name!=\"\",node=~\"^$Node$\",namespace=~\"$Namespace\"}[5m])) by (node, rkt_container_name)",
-          "format": "time_series",
-          "hide": false,
-          "interval": "10s",
-          "intervalFactor": 5,
-          "legendFormat": "<- rkt: {{ node }} | {{ rkt_container_name }}",
-          "metric": "network",
-          "refId": "F",
+          "refId": "B",
           "step": 10
         }
       ],

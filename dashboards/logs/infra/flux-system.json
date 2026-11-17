@@ -23,22 +23,144 @@
         "type": "loki",
         "uid": "P8E80F9AEF21F6940"
       },
-      "description": "Logs from the Helm Controller application pod",
+      "description": "Log lines per interval, split by detected level. Follows the search and level filters.",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "drawStyle": "bars",
+            "fillOpacity": 80,
+            "lineWidth": 1,
+            "stacking": {
+              "group": "A",
+              "mode": "normal"
+            }
+          },
+          "unit": "short"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byRegexp",
+              "options": ".*error$"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "mode": "fixed",
+                  "fixedColor": "red"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byRegexp",
+              "options": ".*critical$"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "mode": "fixed",
+                  "fixedColor": "dark-red"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byRegexp",
+              "options": ".*fatal$"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "mode": "fixed",
+                  "fixedColor": "dark-red"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byRegexp",
+              "options": ".*warn$"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "mode": "fixed",
+                  "fixedColor": "yellow"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byRegexp",
+              "options": ".*info$"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "mode": "fixed",
+                  "fixedColor": "green"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byRegexp",
+              "options": ".*debug$"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "mode": "fixed",
+                  "fixedColor": "blue"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byRegexp",
+              "options": ".*unknown$"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "mode": "fixed",
+                  "fixedColor": "text"
+                }
+              }
+            ]
+          }
+        ]
+      },
       "gridPos": {
-        "h": 5,
+        "h": 7,
         "w": 24,
         "x": 0,
         "y": 0
       },
       "options": {
-        "dedupStrategy": "none",
-        "enableLogDetails": true,
-        "prettifyLogMessage": true,
-        "showCommonLabels": false,
-        "showLabels": true,
-        "showTime": true,
-        "sortOrder": "Descending",
-        "wrapLogMessage": true
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
       },
       "targets": [
         {
@@ -47,25 +169,59 @@
             "uid": "P8E80F9AEF21F6940"
           },
           "editorMode": "code",
-          "expr": "{namespace=\"flux-system\", pod=~\"helm-controller.*\"}",
+          "expr": "sum by (detected_level) (count_over_time({namespace=\"flux-system\", pod=~\"helm-controller.*\"} | detected_level=~\"$level\" |~ `(?i)${search:regex}` [$__interval]))",
           "queryType": "range",
-          "refId": "A"
+          "refId": "A",
+          "legendFormat": "Helm Controller \u00b7 {{detected_level}}"
+        },
+        {
+          "datasource": {
+            "type": "loki",
+            "uid": "P8E80F9AEF21F6940"
+          },
+          "editorMode": "code",
+          "expr": "sum by (detected_level) (count_over_time({namespace=\"flux-system\", pod=~\"kustomize-controller.*\"} | detected_level=~\"$level\" |~ `(?i)${search:regex}` [$__interval]))",
+          "queryType": "range",
+          "refId": "B",
+          "legendFormat": "Kustomize Controller \u00b7 {{detected_level}}"
+        },
+        {
+          "datasource": {
+            "type": "loki",
+            "uid": "P8E80F9AEF21F6940"
+          },
+          "editorMode": "code",
+          "expr": "sum by (detected_level) (count_over_time({namespace=\"flux-system\", pod=~\"notification-controller.*\"} | detected_level=~\"$level\" |~ `(?i)${search:regex}` [$__interval]))",
+          "queryType": "range",
+          "refId": "C",
+          "legendFormat": "Notification Controller \u00b7 {{detected_level}}"
+        },
+        {
+          "datasource": {
+            "type": "loki",
+            "uid": "P8E80F9AEF21F6940"
+          },
+          "editorMode": "code",
+          "expr": "sum by (detected_level) (count_over_time({namespace=\"flux-system\", pod=~\"source-controller.*\"} | detected_level=~\"$level\" |~ `(?i)${search:regex}` [$__interval]))",
+          "queryType": "range",
+          "refId": "D",
+          "legendFormat": "Source Controller \u00b7 {{detected_level}}"
         }
       ],
-      "title": "Helm Controller Container Logs",
-      "type": "logs"
+      "title": "Log volume",
+      "type": "timeseries"
     },
     {
       "datasource": {
         "type": "loki",
         "uid": "P8E80F9AEF21F6940"
       },
-      "description": "Logs from the Kustomize Controller application pod",
+      "description": "Error and warning lines from every panel below (Loki's detected_level). Follows the search filter.",
       "gridPos": {
-        "h": 5,
+        "h": 8,
         "w": 24,
         "x": 0,
-        "y": 5
+        "y": 7
       },
       "options": {
         "dedupStrategy": "none",
@@ -84,49 +240,42 @@
             "uid": "P8E80F9AEF21F6940"
           },
           "editorMode": "code",
-          "expr": "{namespace=\"flux-system\", pod=~\"kustomize-controller.*\"}",
+          "expr": "{namespace=\"flux-system\", pod=~\"helm-controller.*\"} | detected_level=~\"error|critical|fatal|warn\" |~ `(?i)${search:regex}`",
           "queryType": "range",
           "refId": "A"
-        }
-      ],
-      "title": "Kustomize Controller Container Logs",
-      "type": "logs"
-    },
-    {
-      "datasource": {
-        "type": "loki",
-        "uid": "P8E80F9AEF21F6940"
-      },
-      "description": "Logs from the Notfication Controller application pod",
-      "gridPos": {
-        "h": 5,
-        "w": 24,
-        "x": 0,
-        "y": 10
-      },
-      "options": {
-        "dedupStrategy": "none",
-        "enableLogDetails": true,
-        "prettifyLogMessage": true,
-        "showCommonLabels": false,
-        "showLabels": true,
-        "showTime": true,
-        "sortOrder": "Descending",
-        "wrapLogMessage": true
-      },
-      "targets": [
+        },
         {
           "datasource": {
             "type": "loki",
             "uid": "P8E80F9AEF21F6940"
           },
           "editorMode": "code",
-          "expr": "{namespace=\"flux-system\", pod=~\"notification-controller.*\"}",
+          "expr": "{namespace=\"flux-system\", pod=~\"kustomize-controller.*\"} | detected_level=~\"error|critical|fatal|warn\" |~ `(?i)${search:regex}`",
           "queryType": "range",
-          "refId": "A"
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "loki",
+            "uid": "P8E80F9AEF21F6940"
+          },
+          "editorMode": "code",
+          "expr": "{namespace=\"flux-system\", pod=~\"notification-controller.*\"} | detected_level=~\"error|critical|fatal|warn\" |~ `(?i)${search:regex}`",
+          "queryType": "range",
+          "refId": "C"
+        },
+        {
+          "datasource": {
+            "type": "loki",
+            "uid": "P8E80F9AEF21F6940"
+          },
+          "editorMode": "code",
+          "expr": "{namespace=\"flux-system\", pod=~\"source-controller.*\"} | detected_level=~\"error|critical|fatal|warn\" |~ `(?i)${search:regex}`",
+          "queryType": "range",
+          "refId": "D"
         }
       ],
-      "title": "Notfication Controller Container Logs",
+      "title": "Errors and warnings",
       "type": "logs"
     },
     {
@@ -134,9 +283,9 @@
         "type": "loki",
         "uid": "P8E80F9AEF21F6940"
       },
-      "description": "Logs from the Source Controller application pod",
+      "description": "Logs from the Helm Controller application pod Selector: `{namespace=\"flux-system\", pod=~\"helm-controller.*\"}`",
       "gridPos": {
-        "h": 5,
+        "h": 12,
         "w": 24,
         "x": 0,
         "y": 15
@@ -158,12 +307,12 @@
             "uid": "P8E80F9AEF21F6940"
           },
           "editorMode": "code",
-          "expr": "{namespace=\"flux-system\", pod=~\"source-controller.*\"}",
+          "expr": "{namespace=\"flux-system\", pod=~\"helm-controller.*\"} | detected_level=~\"$level\" |~ `(?i)${search:regex}`",
           "queryType": "range",
           "refId": "A"
         }
       ],
-      "title": "Source Controller Container Logs",
+      "title": "Helm Controller Container Logs",
       "type": "logs"
     },
     {
@@ -171,12 +320,12 @@
         "type": "loki",
         "uid": "P8E80F9AEF21F6940"
       },
-      "description": "Logs from the Sealed Secrets Controller application pod",
+      "description": "Logs from the Kustomize Controller application pod Selector: `{namespace=\"flux-system\", pod=~\"kustomize-controller.*\"}`",
       "gridPos": {
-        "h": 4,
+        "h": 12,
         "w": 24,
         "x": 0,
-        "y": 20
+        "y": 27
       },
       "options": {
         "dedupStrategy": "none",
@@ -195,16 +344,90 @@
             "uid": "P8E80F9AEF21F6940"
           },
           "editorMode": "code",
-          "expr": "{namespace=\"flux-system\", pod=~\"sealed-secrets.*\"}",
+          "expr": "{namespace=\"flux-system\", pod=~\"kustomize-controller.*\"} | detected_level=~\"$level\" |~ `(?i)${search:regex}`",
           "queryType": "range",
           "refId": "A"
         }
       ],
-      "title": "Sealed Secrets Controller Container Logs",
+      "title": "Kustomize Controller Container Logs",
+      "type": "logs"
+    },
+    {
+      "datasource": {
+        "type": "loki",
+        "uid": "P8E80F9AEF21F6940"
+      },
+      "description": "Logs from the Notification Controller application pod Selector: `{namespace=\"flux-system\", pod=~\"notification-controller.*\"}`",
+      "gridPos": {
+        "h": 12,
+        "w": 24,
+        "x": 0,
+        "y": 39
+      },
+      "options": {
+        "dedupStrategy": "none",
+        "enableLogDetails": true,
+        "prettifyLogMessage": true,
+        "showCommonLabels": false,
+        "showLabels": true,
+        "showTime": true,
+        "sortOrder": "Descending",
+        "wrapLogMessage": true
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "loki",
+            "uid": "P8E80F9AEF21F6940"
+          },
+          "editorMode": "code",
+          "expr": "{namespace=\"flux-system\", pod=~\"notification-controller.*\"} | detected_level=~\"$level\" |~ `(?i)${search:regex}`",
+          "queryType": "range",
+          "refId": "A"
+        }
+      ],
+      "title": "Notification Controller Container Logs",
+      "type": "logs"
+    },
+    {
+      "datasource": {
+        "type": "loki",
+        "uid": "P8E80F9AEF21F6940"
+      },
+      "description": "Logs from the Source Controller application pod Selector: `{namespace=\"flux-system\", pod=~\"source-controller.*\"}`",
+      "gridPos": {
+        "h": 12,
+        "w": 24,
+        "x": 0,
+        "y": 51
+      },
+      "options": {
+        "dedupStrategy": "none",
+        "enableLogDetails": true,
+        "prettifyLogMessage": true,
+        "showCommonLabels": false,
+        "showLabels": true,
+        "showTime": true,
+        "sortOrder": "Descending",
+        "wrapLogMessage": true
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "loki",
+            "uid": "P8E80F9AEF21F6940"
+          },
+          "editorMode": "code",
+          "expr": "{namespace=\"flux-system\", pod=~\"source-controller.*\"} | detected_level=~\"$level\" |~ `(?i)${search:regex}`",
+          "queryType": "range",
+          "refId": "A"
+        }
+      ],
+      "title": "Source Controller Container Logs",
       "type": "logs"
     }
   ],
-  "refresh": "10s",
+  "refresh": "30s",
   "schemaVersion": 39,
   "tags": [
     "flux",
@@ -216,5 +439,76 @@
     "to": "now"
   },
   "title": "Flux System",
-  "version": 1
+  "version": 1,
+  "templating": {
+    "list": [
+      {
+        "name": "search",
+        "label": "Search",
+        "type": "textbox",
+        "query": "",
+        "current": {
+          "text": "",
+          "value": ""
+        },
+        "options": [
+          {
+            "selected": true,
+            "text": "",
+            "value": ""
+          }
+        ],
+        "description": "Case-insensitive text to match (literal, not a regex)."
+      },
+      {
+        "name": "level",
+        "label": "Level",
+        "type": "custom",
+        "query": "error,warn,info,debug,unknown",
+        "multi": true,
+        "includeAll": true,
+        "allValue": ".*",
+        "current": {
+          "text": [
+            "All"
+          ],
+          "value": [
+            "$__all"
+          ]
+        },
+        "options": [
+          {
+            "selected": true,
+            "text": "All",
+            "value": "$__all"
+          },
+          {
+            "selected": false,
+            "text": "error",
+            "value": "error"
+          },
+          {
+            "selected": false,
+            "text": "warn",
+            "value": "warn"
+          },
+          {
+            "selected": false,
+            "text": "info",
+            "value": "info"
+          },
+          {
+            "selected": false,
+            "text": "debug",
+            "value": "debug"
+          },
+          {
+            "selected": false,
+            "text": "unknown",
+            "value": "unknown"
+          }
+        ]
+      }
+    ]
+  }
 }
